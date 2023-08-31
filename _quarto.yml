@@ -1,0 +1,42 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+  output-dir: docs
+  preview:
+    port: 4200
+  resources:
+    - "images/"
+
+website:
+  site-url: "https://crumplab.com/psyc2001/"
+  title: "psyc2001"
+  repo-url: https://github.com/CrumpLab/psyc2001
+  repo-actions: [edit, issue]
+  page-footer:
+    left: "This page is built with [Quarto](https://quarto.org/)."
+    right:
+    - text: "License"
+      href: LICENSE.md
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: syllabus.qmd
+        text: Syllabus
+      - href: resources.qmd
+        text: Resources
+      - href: blog.qmd
+        text: Course Blog
+    right:
+      - href: about.qmd
+        text: about
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

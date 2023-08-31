@@ -1,0 +1,60 @@
+---
+title: "Course Resources"
+author: "Matt Crump"
+---
+
+**Note: this website is being built as we go through the course. As a class we may decide to make changes to where things go.**
+
+To begin with this page will contain links to various useful information, software and tutorials relevant to the course goals. 
+
+We will go over all of these things in class or in screencasts. If you have questions just ask!
+
+## Software
+
+Download all of these for your computer. All of the software is free an open-source.
+
+- [R](https://www.r-project.org). This is a programming language we will use for several things including data analysis.
+- [R Studio Desktop](https://posit.co/download/rstudio-desktop/). This is an IDE (Integrated Development Environment) for R and other languages. We will use it to code.
+- [Github Desktop](https://desktop.github.com). We will use this to move files back and forth from Github.com
+- [Github.com](https://www.github.com). Make a free github.com account.
+
+## JsPsych
+
+The JsPsych website contains documentation and tutorials.
+
+<https://www.jspsych.org/7.3/>
+
+You can obtain the latest release from github:
+
+<https://github.com/jspsych/jsPsych>
+
+## Browser recommendations
+
+I recommend using Firefox for development. Chrome is fine too. And, Safari on a mac is OK, but may be annoying.
+
+## Tutorials
+
+If you come across useful tutorials about JsPsych let me know and I can post them here.
+
+## JATOS
+
+I use this software along with a digitalocean droplet to serve JsPsych experiments to the web. Using JATOS is an advanced topic that we won't get to until the end of the semester. If you have questions about it, just ask.
+
+<https://www.jatos.org>
+
+## datapipe
+
+This is a tool for serving JsPsych experiments from Github Pages and having data routed to an OSF repository. This allows for a "server-less" way to collect data.
+
+<https://pipe.jspsych.org>
+
+
+
+
+
+
+
+
+
+
+

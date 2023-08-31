@@ -1,0 +1,19 @@
+---
+title: "Course Blog"
+abstract: "Weekly blog for Psyc 2001 with instructions for what to do each week."
+listing:
+  contents: blog
+  id: blog-list
+  sort: "date desc"
+  type: default
+  categories: true
+  image-align: 'right'
+  image-placeholder: 'images/logo2.png'
+  feed: true
+format: 
+  html: 
+    page-layout: full
+---
+
+::: {#blog-list}
+:::

@@ -1,0 +1,177 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Matt Crump",
+    "section": "",
+    "text": "This is an example quarto about page. See the quarto documentation for more options here.\nMatt Crump is a cognitive psychologist with research interests in learning, memory, attention, skill learning, semantics, and computational modeling. He runs the computational cognition lab at Brooklyn College of CUNY."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Matt Crump",
+    "section": "Education",
+    "text": "Education\nPostdoc, Vanderbilt University - 2011 (Psychology)\nPh.D., McMaster University - 2007 (Psychology)\nB.Sc., University of Lethbridge - 2002 (Psychology)"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Matt Crump",
+    "section": "Experience",
+    "text": "Experience\nAssistant Professor - Brooklyn College of CUNY (2011)\nAssociate Professor - Brooklyn College of CUNY (2016)\nFull Professor - Brooklyn College of CUNY (2022)"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Course Blog",
+    "section": "",
+    "text": "Week 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/1_Getting_started/index.html",
+    "href": "blog/1_Getting_started/index.html",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "",
+    "text": "Hi Everyone,\nAs we discussed in our meeting a goal for this week is for everyone to get a Quarto blog up and running. You will use this throughout the semester as a lab journal. Every week this blog will be a place where you place your work (along with making notes for yourself about what you are doing).\nWe will use R, R Studio, Quarto, and Github to create the blog. These very same tools will be used for several other purposes including coding experiments and analysing data from them.\nThis post contains instructions for getting a quarto blog up and running. If you can’t get something to work and have spend more than 30 minutes trying to solve the problem, then please email me and I will help you!"
+  },
+  {
+    "objectID": "blog/1_Getting_started/index.html#setting-up-your-quarto-blog",
+    "href": "blog/1_Getting_started/index.html#setting-up-your-quarto-blog",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "Setting up your quarto blog",
+    "text": "Setting up your quarto blog\nI wrote a whole blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walkthrough that may be helpful as well.\nhttps://www.crumplab.com/blog/post_887_8_25_22_quartoblog/"
+  },
+  {
+    "objectID": "blog/1_Getting_started/index.html#send-me-your-github-repo",
+    "href": "blog/1_Getting_started/index.html#send-me-your-github-repo",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "Send me your github repo",
+    "text": "Send me your github repo\nIf you get everything working, then you will have a github repository for your blog. Please send me the URL for this repository once you have it. We will be sharing code over github throughout this course.\nFor example, the github repo for this course website is:\n&lt;&gt;"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "PSYC 2001: Laboratory Experience",
+    "section": "",
+    "text": "Instructor: Matthew Crump\nTerm: Fall 2023, Brooklyn College of CUNY\nEmail: mcrump@brooklyn.cuny.edu\nThis course website contains resources that we will use throughout the semester to learn JsPsych for programming cognitive psychology experiments. This website is also built using quarto and hosted using Github Pages. The source code for this website can be copied and/or used an example for your own blogs and websites for this course."
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Course Resources",
+    "section": "",
+    "text": "Note: this website is being built as we go through the course. As a class we may decide to make changes to where things go.\nTo begin with this page will contain links to various useful information, software and tutorials relevant to the course goals.\nWe will go over all of these things in class or in screencasts. If you have questions just ask!"
+  },
+  {
+    "objectID": "resources.html#software",
+    "href": "resources.html#software",
+    "title": "Course Resources",
+    "section": "Software",
+    "text": "Software\nDownload all of these for your computer. All of the software is free an open-source.\n\nR. This is a programming language we will use for several things including data analysis.\nR Studio Desktop. This is an IDE (Integrated Development Environment) for R and other languages. We will use it to code.\nGithub Desktop. We will use this to move files back and forth from Github.com\nGithub.com. Make a free github.com account."
+  },
+  {
+    "objectID": "resources.html#jspsych",
+    "href": "resources.html#jspsych",
+    "title": "Course Resources",
+    "section": "JsPsych",
+    "text": "JsPsych\nThe JsPsych website contains documentation and tutorials.\nhttps://www.jspsych.org/7.3/\nYou can obtain the latest release from github:\nhttps://github.com/jspsych/jsPsych"
+  },
+  {
+    "objectID": "resources.html#browser-recommendations",
+    "href": "resources.html#browser-recommendations",
+    "title": "Course Resources",
+    "section": "Browser recommendations",
+    "text": "Browser recommendations\nI recommend using Firefox for development. Chrome is fine too. And, Safari on a mac is OK, but may be annoying."
+  },
+  {
+    "objectID": "resources.html#tutorials",
+    "href": "resources.html#tutorials",
+    "title": "Course Resources",
+    "section": "Tutorials",
+    "text": "Tutorials\nIf you come across useful tutorials about JsPsych let me know and I can post them here."
+  },
+  {
+    "objectID": "resources.html#jatos",
+    "href": "resources.html#jatos",
+    "title": "Course Resources",
+    "section": "JATOS",
+    "text": "JATOS\nI use this software along with a digitalocean droplet to serve JsPsych experiments to the web. Using JATOS is an advanced topic that we won’t get to until the end of the semester. If you have questions about it, just ask.\nhttps://www.jatos.org"
+  },
+  {
+    "objectID": "resources.html#datapipe",
+    "href": "resources.html#datapipe",
+    "title": "Course Resources",
+    "section": "datapipe",
+    "text": "datapipe\nThis is a tool for serving JsPsych experiments from Github Pages and having data routed to an OSF repository. This allows for a “server-less” way to collect data.\nhttps://pipe.jspsych.org"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Psyc 2001 Syllabus",
+    "section": "",
+    "text": "This syllabus is the Fall 2023 syllabus. It may be revised across the semester to address course needs.\nFall 2023\nInstructor: Dr. Matthew Crump\nEmail: mcrump@brooklyn.cuny.edu"
+  },
+  {
+    "objectID": "syllabus.html#bulletin-course-description",
+    "href": "syllabus.html#bulletin-course-description",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Bulletin Course Description",
+    "text": "Bulletin Course Description\nPSYC 2001 Laboratory Experience\n3 hours; 3 credits\nMinimum of 9 hours conference and independent work; 3 credits Faculty-supervised independent research that includes data collection and analysis and/or theoretical work. Weekly conference. Final report must be submitted to the department.\nPrerequisite: Psychology 1000 and permission of the chairperson and sponsorship of a full-time faculty research mentor. Course application is required and can be obtained in the department office before registration.\nCourse objectives: develop the following skills in relation to content learning objectives in 2530:\n\n\n\n\n\n\n\nGoal\nLearning Outcome\n\n\n\n\n1. Exposure to computational techniques for experiment generation\nStudents will demonstrate ability to use HTML, Javascript and JsPsych to replicate designs in cognitive psychology\n\n\n2. Exposure to computational techniques for data-analysis\nStudents will demonstrate the ability to handle and analyze data from cognitive psychology experiments that they program\n\n\n3. Sharing and communication\nStudents will demonstrate ability to use platforms such as Github, R, Rstudio, and Quarto to communicate and disseminate results"
+  },
+  {
+    "objectID": "syllabus.html#course-materials",
+    "href": "syllabus.html#course-materials",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Course Materials",
+    "text": "Course Materials\nCourse materials will be available from this course website or shared via email.\nLink to the course website: https://www.crumplab.com/psyc2001/"
+  },
+  {
+    "objectID": "syllabus.html#course-goals-and-structure",
+    "href": "syllabus.html#course-goals-and-structure",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Course goals and structure",
+    "text": "Course goals and structure\nThis is a lab-based course. Students gain experience in the computational cognition lab on a weekly basis by learning a variety of skills relevant to conducting research in the lab. The focus this semester is learning how to program cognitive psychology experiments for the web using JsPsych. Additional goals include learning R, Rstudio, and Quarto as tools to help share research assets publicly and to make them reproducible.\nThere are 15 weeks in the course. We will meet on a weekly basis either in group meetings, or individual meetings."
+  },
+  {
+    "objectID": "syllabus.html#course-schedule",
+    "href": "syllabus.html#course-schedule",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Course Schedule",
+    "text": "Course Schedule\nThis is a rough schedule that will be modified as needed throughout the semester.\n\n\n\nWeek\nActivity/Goal\n\n\n\n\n1\nOrientation/Set-up Quarto blogs\n\n\n2\nBasic HTML and Javascript coding\n\n\n3\nJsPsych overview and Simple Reaction time task demo\n\n\n4\nProgramming a Stroop Experiment in JsPsych\n\n\n5\nAnalyzing data from a Stroop Experiment in R\n\n\n6\nProgramming a Recognition Memory Experiment in JsPsych\n\n\n7\nAnalyzing data from a Memory experiment in R\n\n\n8\nReplicating a classic cognitive experiment in Jspsych\n\n\n9\nChoosing your own experiment to replicate\n\n\n10\nIndependent Replication Implementation\n\n\n11\nIndependent Replication Implementation\n\n\n12\nPilot Data collection\n\n\n13\nIndependent Replication analysis\n\n\n14\nAdvanced topics/Presentations\n\n\n15\nAdvanced topics/Presentations"
+  },
+  {
+    "objectID": "syllabus.html#assignments-and-grading",
+    "href": "syllabus.html#assignments-and-grading",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Assignments and Grading",
+    "text": "Assignments and Grading\nStudents are expected to contribute their work to a quarto blog on a weekly basis. The expectations for each week will be discussed in class. At the end of the semester the blog is submitted as a lab journal providing a record of the laboratory experience."
+  },
+  {
+    "objectID": "syllabus.html#course-policies",
+    "href": "syllabus.html#course-policies",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Course Policies",
+    "text": "Course Policies\n\nChanges to the syllabus\nThe syllabus may be updated for clarity or to make adjustments for pedagogical purposes. The most current version of the syllabus is always available from the course website.\n\n\nMissing an Exam\nNote there are no exams in this course.\nIn the event of an emergency, contact me as soon as possible. If you are missing an exam for religious reasons refer to the state law regarding non-attendance because of religious beliefs noted in the front matter of the Undergraduate Bulletin and Graduate Bulletin. These may be found on the Academic Calendars, Course Schedules, and Bulletins page of the Registrar’s website. See also the student bereavement policy at http://www.brooklyn.cuny.edu/web/about/initiatives/policies/bereavement.php.\n\n\n\nAccessibility\nIn order to receive disability-related academic accommodations students must first be registered with the Center for Student Disability Services. Students who have a documented disability or suspect they may have a disability are invited to set up an appointment with the Director of the Center for Student Disability Services, at 718-951-5538. If you have already registered with the Center for Student Disability Services, please provide your professor with the course accommodation form and discuss your specific accommodation with him/her.\n\n\n\nGeneral Help with Research and Writing\nThe Library maintains a collection of links to sites that can assist you with proper citation format and paraphrasing and quoting other authors at Research & Writing Help. The Learning Center has writing tutors available to help you with your writing http://lc.brooklyn.cuny.edu/.\nThe best learning is done in conversation with others, whether they are people—classmates, teachers, friends—or texts—books, articles, essays, poems, films etc. It should not be a solitary process. However, the assignments that you hand in for this course must be done on your own, should represent your own thinking, and should be original work that you have done for this particular course. A good way to balance these two seemingly contradictory approaches (collaborative learning and original individually-produced work) without knowingly—or, even unwittingly—resorting to plagiarism or other forms of academic misconduct is to learn and meticulously observe the rules for citing the work of others (this could be the great point your roommate made that you used in your paper, it could be a well-turned phrase from an academic essay, or it could be anything in between). It is your responsibility to learn what constitutes plagiarism and the correct rules for citing sources—read the information on the following website carefully: http://www.brooklyn.cuny.edu/bc/policies/. The bottom line is: passing off anyone’s words or ideas as your own for any reason whatsoever is plagiarism."
+  },
+  {
+    "objectID": "syllabus.html#sec-integrity",
+    "href": "syllabus.html#sec-integrity",
+    "title": "Psyc 2001 Syllabus",
+    "section": "Violations of Academic integrity",
+    "text": "Violations of Academic integrity\nIt is the responsibility of each student to understand and act in accordance with the University’s policy on Academic Integrity, described below.\n\nUniversity’s policy on Academic Integrity\nThe faculty and administration of Brooklyn College support an environment free from cheating and plagiarism. Each student is responsible for being aware of what constitutes cheating and plagiarism and for avoiding both. The complete text of the CUNY Academic Integrity Policy and the Brooklyn College procedure for implementing that policy can be found at this site. If a faculty member suspects a violation of academic integrity and, upon investigation, confirms that violation, or if the student admits the violation, the faculty member MUST report the violation."
+  },
+  {
+    "objectID": "syllabus.html#the-rights-of-undocumented-students",
+    "href": "syllabus.html#the-rights-of-undocumented-students",
+    "title": "Psyc 2001 Syllabus",
+    "section": "The Rights of Undocumented Students",
+    "text": "The Rights of Undocumented Students\nAs an educator, I support the rights of undocumented students to an education. For resources and support, please visit Brooklyn College’s Immigrant Student Support Office located at 117 Roosevelt Hall. You can also contact them via email at ISSO@brooklyn.cuny.edu or via phone at 718-951-5023."
+  },
+  {
+    "objectID": "blog/1_Getting_started/index.html#make-a-first-post",
+    "href": "blog/1_Getting_started/index.html#make-a-first-post",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "Make a first post",
+    "text": "Make a first post\nIf you get everything working then you should be able to create new posts and delete the example posts. Make at least one new post to demonstrate for yourself that it works.\nI find blogging very helpful for learning new skills. For example, I’ll often use a blog post as a scratch pad to take notes or make observations about something that I’m trying to learn about. These notes often become helpful for me later on. I suggest that you write a blog post that contains notes about setting up your blog. This could include questions you have, notes about something that didn’t work, or ideas for things about the site you might want to change later."
+  }
+]

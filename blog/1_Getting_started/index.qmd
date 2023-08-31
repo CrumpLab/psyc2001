@@ -1,0 +1,35 @@
+---
+title: "Week 1: Installing software and getting your Quarto Blog working"
+author: "Matt Crump"
+date: 8/31/23
+description: "Instructions for getting started with Psyc 2001 in Fall 2023"
+---
+
+Hi Everyone, 
+
+As we discussed in our meeting a goal for this week is for everyone to get a Quarto blog up and running. You will use this throughout the semester as a lab journal. Every week this blog will be a place where you place your work (along with making notes for yourself about what you are doing).
+
+We will use R, R Studio, Quarto, and Github to create the blog. These very same tools will be used for several other purposes including coding experiments and analysing data from them. 
+
+This post contains instructions for getting a quarto blog up and running. If you can't get something to work and have spend more than 30 minutes trying to solve the problem, then please email me and I will help you!
+
+## Setting up your quarto blog
+
+I wrote a whole blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walkthrough that may be helpful as well. 
+
+<https://www.crumplab.com/blog/post_887_8_25_22_quartoblog/>
+
+## Make a first post
+
+If you get everything working then you should be able to create new posts and delete the example posts. Make at least one new post to demonstrate for yourself that it works. 
+
+I find blogging very helpful for learning new skills. For example, I'll often use a blog post as a scratch pad to take notes or make observations about something that I'm trying to learn about. These notes often become helpful for me later on. I suggest that you write a blog post that contains notes about setting up your blog. This could include questions you have, notes about something that didn't work, or ideas for things about the site you might want to change later.
+
+## Send me your github repo
+
+If you get everything working, then you will have a github repository for your blog. Please send me the URL for this repository once you have it. We will be sharing code over github throughout this course. 
+
+For example, the github repo for this course website is:
+
+<>
+

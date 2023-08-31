@@ -1,0 +1,111 @@
+---
+title: "Psyc 2001 Syllabus"
+author: 'Matthew Crump'
+format: 
+  html: default
+  pdf: default
+---
+
+### PSYC 2001 -- Laboratory Experience
+
+**This syllabus is the Fall 2023 syllabus. It may be revised across the semester to address course needs.**
+
+Fall 2023
+
+Instructor: [Dr. Matthew Crump](https://www.crumplab.com)
+
+Email: mcrump\@brooklyn.cuny.edu
+
+## Bulletin Course Description
+
+PSYC 2001 Laboratory Experience
+
+3 hours; 3 credits
+
+Minimum of 9 hours conference and independent work; 3 credits Faculty-supervised independent research that includes data collection and analysis and/or theoretical work. Weekly conference. Final report must be submitted to the department.
+
+Prerequisite: Psychology 1000 and permission of the chairperson and sponsorship of a full-time faculty research mentor. Course application is required and can be obtained in the department office before registration.
+
+**Course objectives**: develop the following skills in relation to content learning objectives in 2530:
+
+| Goal                                                               | Learning Outcome                                                                                                                 |
+|-------------------------------|-----------------------------------------|
+| 1\. Exposure to computational techniques for experiment generation | Students will demonstrate ability to use HTML, Javascript and JsPsych to replicate designs in cognitive psychology               |
+| 2\. Exposure to computational techniques for data-analysis         | Students will demonstrate the ability to handle and analyze data from cognitive psychology experiments that they program         |
+| 3\. Sharing and communication                                      | Students will demonstrate ability to use platforms such as Github, R, Rstudio, and Quarto to communicate and disseminate results |
+
+## Course Materials
+
+Course materials will be available from this course website or shared via email.
+
+Link to the course website: <https://www.crumplab.com/psyc2001/>
+
+## Course goals and structure
+
+This is a lab-based course. Students gain experience in the computational cognition lab on a weekly basis by learning a variety of skills relevant to conducting research in the lab. The focus this semester is learning how to program cognitive psychology experiments for the web using JsPsych. Additional goals include learning R, Rstudio, and Quarto as tools to help share research assets publicly and to make them reproducible.
+
+There are 15 weeks in the course. We will meet on a weekly basis either in group meetings, or individual meetings.
+
+## Course Schedule
+
+This is a rough schedule that will be modified as needed throughout the semester.
+
+| Week | Activity/Goal                                          |
+|------|--------------------------------------------------------|
+| 1    | Orientation/Set-up Quarto blogs                        |
+| 2    | Basic HTML and Javascript coding                       |
+| 3    | JsPsych overview and Simple Reaction time task demo    |
+| 4    | Programming a Stroop Experiment in JsPsych             |
+| 5    | Analyzing data from a Stroop Experiment in R           |
+| 6    | Programming a Recognition Memory Experiment in JsPsych |
+| 7    | Analyzing data from a Memory experiment in R           |
+| 8    | Replicating a classic cognitive experiment in Jspsych  |
+| 9    | Choosing your own experiment to replicate              |
+| 10   | Independent Replication Implementation                 |
+| 11   | Independent Replication Implementation                 |
+| 12   | Pilot Data collection                                  |
+| 13   | Independent Replication analysis                       |
+| 14   | Advanced topics/Presentations                          |
+| 15   | Advanced topics/Presentations                          |
+
+## Assignments and Grading
+
+Students are expected to contribute their work to a quarto blog on a weekly basis. The expectations for each week will be discussed in class. At the end of the semester the blog is submitted as a lab journal providing a record of the laboratory experience.
+
+## Course Policies
+
+### Changes to the syllabus
+
+The syllabus may be updated for clarity or to make adjustments for pedagogical purposes. The most current version of the syllabus is always available from the course website.
+
+### Missing an Exam
+
+Note there are no exams in this course.
+
+In the event of an emergency, contact me as soon as possible. If you are missing an exam for religious reasons refer to the state law regarding non-attendance because of religious beliefs noted in the front matter of the Undergraduate Bulletin and Graduate Bulletin. These may be found on the Academic Calendars, Course Schedules, and Bulletins page of the Registrar's website. See also the student bereavement policy at <http://www.brooklyn.cuny.edu/web/about/initiatives/policies/bereavement.php>.
+
+------------------------------------------------------------------------
+
+### Accessibility
+
+In order to receive disability-related academic accommodations students must first be registered with the Center for Student Disability Services. Students who have a documented disability or suspect they may have a disability are invited to set up an appointment with the Director of the Center for Student Disability Services, at 718-951-5538. If you have already registered with the Center for Student Disability Services, please provide your professor with the course accommodation form and discuss your specific accommodation with him/her.
+
+------------------------------------------------------------------------
+
+### General Help with Research and Writing
+
+The Library maintains a collection of links to sites that can assist you with proper citation format and paraphrasing and quoting other authors at [Research & Writing Help](https://library.brooklyn.cuny.edu/resources/?service=research-help). The Learning Center has writing tutors available to help you with your writing <http://lc.brooklyn.cuny.edu/>.
+
+The best learning is done in conversation with others, whether they are people---classmates, teachers, friends---or texts---books, articles, essays, poems, films etc. It should not be a solitary process. However, the assignments that you hand in for this course must be done on your own, should represent your own thinking, and should be original work that you have done for this particular course. A good way to balance these two seemingly contradictory approaches (collaborative learning and original individually-produced work) without knowingly---or, even unwittingly---resorting to plagiarism or other forms of academic misconduct is to learn and meticulously observe the rules for citing the work of others (this could be the great point your roommate made that you used in your paper, it could be a well-turned phrase from an academic essay, or it could be anything in between). It is your responsibility to learn what constitutes plagiarism and the correct rules for citing sources---read the information on the following website carefully: <http://www.brooklyn.cuny.edu/bc/policies/>. The bottom line is: passing off anyone's words or ideas as your own for any reason whatsoever is plagiarism.
+
+## Violations of Academic integrity {#sec-integrity}
+
+It is the responsibility of each student to understand and act in accordance with the University's policy on Academic Integrity, described below.
+
+### University's policy on Academic Integrity
+
+The faculty and administration of Brooklyn College support an environment free from cheating and plagiarism. Each student is responsible for being aware of what constitutes cheating and plagiarism and for avoiding both. The complete text of the CUNY Academic Integrity Policy and the Brooklyn College procedure for implementing that policy can be found at [this site](http://www.brooklyn.cuny.edu/web/about/initiatives.php). If a faculty member suspects a violation of academic integrity and, upon investigation, confirms that violation, or if the student admits the violation, the faculty member MUST report the violation.
+
+## The Rights of Undocumented Students
+
+As an educator, I support the rights of undocumented students to an education. For resources and support, please visit Brooklyn College's Immigrant Student Support Office located at 117 Roosevelt Hall. You can also contact them via email at ISSO\@brooklyn.cuny.edu or via phone at 718-951-5023.

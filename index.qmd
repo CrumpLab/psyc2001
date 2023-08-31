@@ -1,0 +1,17 @@
+---
+title: "PSYC 2001: Laboratory Experience"
+description: "Fall 2023 course for students learning JsPsych."
+image: 'images/jspsych-logo.jpg'
+image-alt: "Fall 2023 course for students learning JsPsych."
+editor: source
+title-block-style: none
+---
+
+Instructor: [Matthew Crump](https://www.crumplab.com) 
+
+Term: Fall 2023, Brooklyn College of CUNY
+
+Email: [mcrump\@brooklyn.cuny.edu](mcrump@brooklyn.cuny.edu)
+
+This course website contains resources that we will use throughout the semester to learn JsPsych for programming cognitive psychology experiments. This website is also built using quarto and hosted using Github Pages. The source code for this website can be copied and/or used an example for your own blogs and websites for this course.
+
