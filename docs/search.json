@@ -173,5 +173,12 @@
     "title": "Week 1: Installing software and getting your Quarto Blog working",
     "section": "Make a first post",
     "text": "Make a first post\nIf you get everything working then you should be able to create new posts and delete the example posts. Make at least one new post to demonstrate for yourself that it works.\nI find blogging very helpful for learning new skills. For example, I’ll often use a blog post as a scratch pad to take notes or make observations about something that I’m trying to learn about. These notes often become helpful for me later on. I suggest that you write a blog post that contains notes about setting up your blog. This could include questions you have, notes about something that didn’t work, or ideas for things about the site you might want to change later."
+  },
+  {
+    "objectID": "blog/1_Getting_started/index.html#feel-free-to-poke-around-quarto",
+    "href": "blog/1_Getting_started/index.html#feel-free-to-poke-around-quarto",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "Feel free to poke around Quarto",
+    "text": "Feel free to poke around Quarto\nThe documentation for quarto is available here:\nhttps://quarto.org\nThere is much more to quarto than making blogs, so feel free to poke around in the documentation to see what it can do."
   }
 ]

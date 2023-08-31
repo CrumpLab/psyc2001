@@ -33,5 +33,13 @@ For example, the github repo for this course website is:
 
 <https://github.com/CrumpLab/psyc2001>
 
+## Feel free to poke around Quarto
+
+The documentation for quarto is available here:
+
+<https://quarto.org>
+
+There is much more to quarto than making blogs, so feel free to poke around in the documentation to see what it can do.
+
 
 
