@@ -32,21 +32,21 @@
     "href": "blog/1_Getting_started/index.html",
     "title": "Week 1: Installing software and getting your Quarto Blog working",
     "section": "",
-    "text": "Hi Everyone,\nAs we discussed in our meeting a goal for this week is for everyone to get a Quarto blog up and running. You will use this throughout the semester as a lab journal. Every week this blog will be a place where you place your work (along with making notes for yourself about what you are doing).\nWe will use R, R Studio, Quarto, and Github to create the blog. These very same tools will be used for several other purposes including coding experiments and analysing data from them.\nThis post contains instructions for getting a quarto blog up and running. If you can’t get something to work and have spend more than 30 minutes trying to solve the problem, then please email me and I will help you!"
+    "text": "Hi Everyone,\nAs we discussed in our meeting a goal for this week is for everyone to get a Quarto blog up and running. You will use this blog throughout the semester as a lab journal. Every week this blog will be a place where you place your work (along with making notes for yourself about what you are doing).\nWe will use R, R Studio, Quarto, and Github to create the blog. These very same tools will be used for several other purposes including coding experiments and analyzing data from them.\nThis post contains instructions for getting a quarto blog up and running. If you can’t get something to work and have spend more than 30 minutes trying to solve the problem, then please email me and I will help you!"
   },
   {
     "objectID": "blog/1_Getting_started/index.html#setting-up-your-quarto-blog",
     "href": "blog/1_Getting_started/index.html#setting-up-your-quarto-blog",
     "title": "Week 1: Installing software and getting your Quarto Blog working",
     "section": "Setting up your quarto blog",
-    "text": "Setting up your quarto blog\nI wrote a whole blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walkthrough that may be helpful as well.\nhttps://www.crumplab.com/blog/post_887_8_25_22_quartoblog/"
+    "text": "Setting up your quarto blog\nI wrote a blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walk through that should be helpful as well.\nhttps://www.crumplab.com/blog/post_887_8_25_22_quartoblog/"
   },
   {
     "objectID": "blog/1_Getting_started/index.html#send-me-your-github-repo",
     "href": "blog/1_Getting_started/index.html#send-me-your-github-repo",
     "title": "Week 1: Installing software and getting your Quarto Blog working",
     "section": "Send me your github repo",
-    "text": "Send me your github repo\nIf you get everything working, then you will have a github repository for your blog. Please send me the URL for this repository once you have it. We will be sharing code over github throughout this course.\nFor example, the github repo for this course website is:\n&lt;&gt;"
+    "text": "Send me your github repo\nIf you get everything working, then you will have a github repository for your blog. Please send me the URL for this repository once you have it. We will be sharing code over github throughout this course.\nFor example, the github repo for this course website is:\nhttps://github.com/CrumpLab/psyc2001"
   },
   {
     "objectID": "index.html",
