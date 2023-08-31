@@ -7,15 +7,15 @@ description: "Instructions for getting started with Psyc 2001 in Fall 2023"
 
 Hi Everyone, 
 
-As we discussed in our meeting a goal for this week is for everyone to get a Quarto blog up and running. You will use this throughout the semester as a lab journal. Every week this blog will be a place where you place your work (along with making notes for yourself about what you are doing).
+As we discussed in our meeting a goal for this week is for everyone to get a Quarto blog up and running. You will use this blog throughout the semester as a lab journal. Every week this blog will be a place where you place your work (along with making notes for yourself about what you are doing).
 
-We will use R, R Studio, Quarto, and Github to create the blog. These very same tools will be used for several other purposes including coding experiments and analysing data from them. 
+We will use R, R Studio, Quarto, and Github to create the blog. These very same tools will be used for several other purposes including coding experiments and analyzing data from them. 
 
 This post contains instructions for getting a quarto blog up and running. If you can't get something to work and have spend more than 30 minutes trying to solve the problem, then please email me and I will help you!
 
 ## Setting up your quarto blog
 
-I wrote a whole blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walkthrough that may be helpful as well. 
+I wrote a blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walk through that should be helpful as well. 
 
 <https://www.crumplab.com/blog/post_887_8_25_22_quartoblog/>
 
@@ -31,5 +31,7 @@ If you get everything working, then you will have a github repository for your b
 
 For example, the github repo for this course website is:
 
-<>
+<https://github.com/CrumpLab/psyc2001>
+
+
 
