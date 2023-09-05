@@ -95,7 +95,7 @@
     "href": "blog/2_Basic_web/index.html#assignment",
     "title": "Week 2: Really Basic HTML and Javascript",
     "section": "Assignment",
-    "text": "Assignment\nCreate your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).\nAdd your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github."
+    "text": "Assignment\nCreate your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).\nAdd your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.\n\nExample assignment ideas\nIn a couple weeks we will be making a Stroop experiment demo. Part of this experiment requires being able to present words one at a time in different colors.\nThese are some example stimuli:\n Consider how you would use basic javascript and a button to achieve the following result:\n\nEvery time you click the button a new Stroop item is displayed on the screen.\n\nWe will do this later using jsPsych, but it can be instructive to figure out how to solve problems using basic javascript and html."
   },
   {
     "objectID": "index.html",
