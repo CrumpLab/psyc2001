@@ -10,6 +10,7 @@ project:
 
 website:
   site-url: "https://crumplab.com/psyc2001/"
+  google-analytics: "G-5115L6KWX7"
   title: "psyc2001"
   repo-url: https://github.com/CrumpLab/psyc2001
   repo-actions: [edit, issue]
