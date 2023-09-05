@@ -25,7 +25,7 @@
     "href": "blog.html",
     "title": "Course Blog",
     "section": "",
-    "text": "Week 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
+    "text": "Week 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/1_Getting_started/index.html",
@@ -42,11 +42,60 @@
     "text": "Setting up your quarto blog\nI wrote a blog post about how to do this a year ago. Here is the link. All of the steps should still work. The blog post has a video walk through that should be helpful as well.\nhttps://www.crumplab.com/blog/post_887_8_25_22_quartoblog/"
   },
   {
+    "objectID": "blog/1_Getting_started/index.html#make-a-first-post",
+    "href": "blog/1_Getting_started/index.html#make-a-first-post",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "Make a first post",
+    "text": "Make a first post\nIf you get everything working then you should be able to create new posts and delete the example posts. Make at least one new post to demonstrate for yourself that it works.\nI find blogging very helpful for learning new skills. For example, I’ll often use a blog post as a scratch pad to take notes or make observations about something that I’m trying to learn about. These notes often become helpful for me later on. I suggest that you write a blog post that contains notes about setting up your blog. This could include questions you have, notes about something that didn’t work, or ideas for things about the site you might want to change later."
+  },
+  {
     "objectID": "blog/1_Getting_started/index.html#send-me-your-github-repo",
     "href": "blog/1_Getting_started/index.html#send-me-your-github-repo",
     "title": "Week 1: Installing software and getting your Quarto Blog working",
     "section": "Send me your github repo",
     "text": "Send me your github repo\nIf you get everything working, then you will have a github repository for your blog. Please send me the URL for this repository once you have it. We will be sharing code over github throughout this course.\nFor example, the github repo for this course website is:\nhttps://github.com/CrumpLab/psyc2001"
+  },
+  {
+    "objectID": "blog/1_Getting_started/index.html#feel-free-to-poke-around-quarto",
+    "href": "blog/1_Getting_started/index.html#feel-free-to-poke-around-quarto",
+    "title": "Week 1: Installing software and getting your Quarto Blog working",
+    "section": "Feel free to poke around Quarto",
+    "text": "Feel free to poke around Quarto\nThe documentation for quarto is available here:\nhttps://quarto.org\nThere is much more to quarto than making blogs, so feel free to poke around in the documentation to see what it can do."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html",
+    "href": "blog/2_Basic_web/index.html",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "",
+    "text": "Pre-requisites:\nThis post assumes that you have a quarto blog up and running (see last post)."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#overview",
+    "href": "blog/2_Basic_web/index.html#overview",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "Overview",
+    "text": "Overview\nThe purpose of this week is to make sure we understand some very basic web programming concepts before attempting to code cognitive psych experiments with jsPsych.\nIf you already have experience coding for the web, that’s great, and this may be a review for you."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#software",
+    "href": "blog/2_Basic_web/index.html#software",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "Software",
+    "text": "Software\nYou should already have R Studio and R installed, as well as Github desktop. We will be using these tools throughout the course.\nTo program for the web you really only need a text editor (to write the code), and web-browser (to check that it works). We will use the text editor inside R studio (it’s totally fine if you want to use a different one). My preferred web-browser for debugging code is firefox. Google chrome is fine too. Safari for mac is OK."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#concepts-to-cover",
+    "href": "blog/2_Basic_web/index.html#concepts-to-cover",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "Concepts to cover",
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast, and show how I am using software as I go along.\n\nWhat is HTML? What kind of file is it?\nWeb-browser as a compiler that interprets HTML code and displays it as a web page\nBasic anatomy of an HTML file\nAdding HTML elements to the body\n\nsee w3schools\n\nWhat is Javascript?\nWeb-browser as a javascript compiler that executes javascript code\nJavascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)\n\nLink to text.html"
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#assignment",
+    "href": "blog/2_Basic_web/index.html#assignment",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "Assignment",
+    "text": "Assignment\nCreate your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).\nAdd your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github."
   },
   {
     "objectID": "index.html",
@@ -166,19 +215,5 @@
     "title": "Psyc 2001 Syllabus",
     "section": "The Rights of Undocumented Students",
     "text": "The Rights of Undocumented Students\nAs an educator, I support the rights of undocumented students to an education. For resources and support, please visit Brooklyn College’s Immigrant Student Support Office located at 117 Roosevelt Hall. You can also contact them via email at ISSO@brooklyn.cuny.edu or via phone at 718-951-5023."
-  },
-  {
-    "objectID": "blog/1_Getting_started/index.html#make-a-first-post",
-    "href": "blog/1_Getting_started/index.html#make-a-first-post",
-    "title": "Week 1: Installing software and getting your Quarto Blog working",
-    "section": "Make a first post",
-    "text": "Make a first post\nIf you get everything working then you should be able to create new posts and delete the example posts. Make at least one new post to demonstrate for yourself that it works.\nI find blogging very helpful for learning new skills. For example, I’ll often use a blog post as a scratch pad to take notes or make observations about something that I’m trying to learn about. These notes often become helpful for me later on. I suggest that you write a blog post that contains notes about setting up your blog. This could include questions you have, notes about something that didn’t work, or ideas for things about the site you might want to change later."
-  },
-  {
-    "objectID": "blog/1_Getting_started/index.html#feel-free-to-poke-around-quarto",
-    "href": "blog/1_Getting_started/index.html#feel-free-to-poke-around-quarto",
-    "title": "Week 1: Installing software and getting your Quarto Blog working",
-    "section": "Feel free to poke around Quarto",
-    "text": "Feel free to poke around Quarto\nThe documentation for quarto is available here:\nhttps://quarto.org\nThere is much more to quarto than making blogs, so feel free to poke around in the documentation to see what it can do."
   }
 ]

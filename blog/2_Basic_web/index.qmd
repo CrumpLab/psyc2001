@@ -1,0 +1,71 @@
+---
+title: "Week 2: Really Basic HTML and Javascript"
+description: "Basic web coding concepts for complete beginners, and some suggestions for software usage in this course."
+author: "Matt Crump"
+date: 09-05-23
+date-modified: last-modified
+image: Basic.png
+categories:
+  - Psyc 2001
+  - jspsych
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+Pre-requisites:
+
+This post assumes that you have a quarto blog up and running (see last post).
+
+## Overview
+
+The purpose of this week is to make sure we understand some very basic web programming concepts before attempting to code cognitive psych experiments with jsPsych.
+
+If you already have experience coding for the web, that's great, and this may be a review for you. 
+
+## Software
+
+You should already have R Studio and R installed, as well as Github desktop. We will be using these tools throughout the course. 
+
+To program for the web you really only need a text editor (to write the code), and web-browser (to check that it works). We will use the text editor inside R studio (it's totally fine if you want to use a different one). My preferred web-browser for debugging code is [firefox](https://www.mozilla.org/en-US/firefox/new/). Google chrome is fine too. Safari for mac is OK.
+
+## Concepts to cover
+
+I'll cover the following concepts in the screencast, and show how I am using software as I go along.
+
+- What is HTML? What kind of file is it?
+
+- Web-browser as a compiler that interprets HTML code and displays it as a web page
+
+- Basic anatomy of an HTML file
+
+- Adding HTML elements to the body 
+  - see [w3schools](https://www.w3schools.com/html/default.asp)
+
+- What is Javascript?
+
+- Web-browser as a javascript compiler that executes javascript code
+
+- Javascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)
+
+[Link to text.html](test.html)
+
+
+## Assignment
+
+Create your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).
+
+Add your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.
+
+
+
+
+
+
+
+
+
+
+
+

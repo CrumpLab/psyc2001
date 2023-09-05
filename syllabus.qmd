@@ -29,7 +29,7 @@ Prerequisite: Psychology 1000 and permission of the chairperson and sponsorship 
 **Course objectives**: develop the following skills in relation to content learning objectives in 2530:
 
 | Goal                                                               | Learning Outcome                                                                                                                 |
-|-------------------------------|-----------------------------------------|
+|--------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
 | 1\. Exposure to computational techniques for experiment generation | Students will demonstrate ability to use HTML, Javascript and JsPsych to replicate designs in cognitive psychology               |
 | 2\. Exposure to computational techniques for data-analysis         | Students will demonstrate the ability to handle and analyze data from cognitive psychology experiments that they program         |
 | 3\. Sharing and communication                                      | Students will demonstrate ability to use platforms such as Github, R, Rstudio, and Quarto to communicate and disseminate results |

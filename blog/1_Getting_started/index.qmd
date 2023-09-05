@@ -2,6 +2,7 @@
 title: "Week 1: Installing software and getting your Quarto Blog working"
 author: "Matt Crump"
 date: 8/31/23
+image: quarto.png
 description: "Instructions for getting started with Psyc 2001 in Fall 2023"
 ---
 

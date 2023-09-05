@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Matt Crump">
+<meta name="dcterms.date" content="2023-09-05">
+<meta name="description" content="Basic web coding concepts for complete beginners, and some suggestions for software usage in this course.">
 
-<title>psyc2001 - Course Blog</title>
+<title>psyc2001 - Week 2: Really Basic HTML and Javascript</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,41 +61,10 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-blog-list .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-blog-list'] = new List('listing-blog-list', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
-<link rel="alternate" type="application/rss+xml" title="psyc2001" href="blog.xml"></head>
+<link rel="stylesheet" href="../../styles.css">
+</head>
 
 <body class="nav-fixed">
 
@@ -103,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">psyc2001</span>
     </a>
   </div>
@@ -114,25 +84,25 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html" rel="" target="">
+    <a class="nav-link" href="../../syllabus.html" rel="" target="">
  <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resources.html" rel="" target="">
+    <a class="nav-link" href="../../resources.html" rel="" target="">
  <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./blog.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../blog.html" rel="" target="">
  <span class="menu-text">Course Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">about</span></a>
   </li>  
 </ul>
@@ -143,114 +113,104 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Psyc 2001">Psyc 2001 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="jspsych">jspsych <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#concepts-to-cover" id="toc-concepts-to-cover" class="nav-link" data-scroll-target="#concepts-to-cover">Concepts to cover</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/CrumpLab/psyc2001/edit/main/blog/2_Basic_web/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/CrumpLab/psyc2001/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Course Blog</h1>
-</div>
+<h1 class="title">Week 2: Really Basic HTML and Javascript</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Psyc 2001</div>
+    <div class="quarto-category">jspsych</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    Basic web coding concepts for complete beginners, and some suggestions for software usage in this course.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Matt Crump </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 5, 2023</p>
+    </div>
+  </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">September 5, 2023</p>
+    </div>
+  </div>
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="abstract-title">Abstract</div>
-    Weekly blog for Psyc 2001 with instructions for what to do each week.
-  </div>
-</div>
 
 </header>
 
-<div id="listing-blog-list" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Psyc 2001,jspsych" data-listing-date-sort="1693886400000" data-listing-file-modified-sort="1693942209488" data-listing-date-modified-sort="1693942209000" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./blog/2_Basic_web/index.html"> <img src="./blog/2_Basic_web/Basic.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./blog/2_Basic_web/index.html">
-<h3 class="no-anchor listing-title">
-Week 2: Really Basic HTML and Javascript
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('Psyc 2001'); return false;">
-Psyc 2001
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('jspsych'); return false;">
-jspsych
-</div>
-</div>
-<a href="./blog/2_Basic_web/index.html">
-<div class="listing-description">
-<p>Basic web coding concepts for complete beginners, and some suggestions for software usage in this course.</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blog/2_Basic_web/index.html">
-<div class="listing-date">
-Sep 5, 2023
-</div>
-<div class="listing-author">
-Matt Crump
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1693454400000" data-listing-file-modified-sort="1693937490739" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="./blog/1_Getting_started/index.html"> <img src="./blog/1_Getting_started/quarto.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="./blog/1_Getting_started/index.html">
-<h3 class="no-anchor listing-title">
-Week 1: Installing software and getting your Quarto Blog working
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<p>Instructions for getting started with Psyc 2001 in Fall 2023</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./blog/1_Getting_started/index.html">
-<div class="listing-date">
-Aug 31, 2023
-</div>
-<div class="listing-author">
-Matt Crump
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>Pre-requisites:</p>
+<p>This post assumes that you have a quarto blog up and running (see last post).</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The purpose of this week is to make sure we understand some very basic web programming concepts before attempting to code cognitive psych experiments with jsPsych.</p>
+<p>If you already have experience coding for the web, that’s great, and this may be a review for you.</p>
+</section>
+<section id="software" class="level2">
+<h2 class="anchored" data-anchor-id="software">Software</h2>
+<p>You should already have R Studio and R installed, as well as Github desktop. We will be using these tools throughout the course.</p>
+<p>To program for the web you really only need a text editor (to write the code), and web-browser (to check that it works). We will use the text editor inside R studio (it’s totally fine if you want to use a different one). My preferred web-browser for debugging code is <a href="https://www.mozilla.org/en-US/firefox/new/">firefox</a>. Google chrome is fine too. Safari for mac is OK.</p>
+</section>
+<section id="concepts-to-cover" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-cover">Concepts to cover</h2>
+<p>I’ll cover the following concepts in the screencast, and show how I am using software as I go along.</p>
+<ul>
+<li><p>What is HTML? What kind of file is it?</p></li>
+<li><p>Web-browser as a compiler that interprets HTML code and displays it as a web page</p></li>
+<li><p>Basic anatomy of an HTML file</p></li>
+<li><p>Adding HTML elements to the body</p>
+<ul>
+<li>see <a href="https://www.w3schools.com/html/default.asp">w3schools</a></li>
+</ul></li>
+<li><p>What is Javascript?</p></li>
+<li><p>Web-browser as a javascript compiler that executes javascript code</p></li>
+<li><p>Javascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)</p></li>
+</ul>
+<p><a href="test.html">Link to text.html</a></p>
+</section>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<p>Create your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).</p>
+<p>Add your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.</p>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -492,11 +452,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">This page is built with <a href="https://quarto.org/">Quarto</a>.</div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/CrumpLab/psyc2001/edit/main/blog.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/CrumpLab/psyc2001/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./LICENSE.md">License</a>
+    <a class="nav-link" href="../../LICENSE.md">License</a>
   </li>  
 </ul>
     </div>
