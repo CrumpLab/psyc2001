@@ -32,6 +32,8 @@ To program for the web you really only need a text editor (to write the code), a
 
 ## Concepts to cover
 
+{{< video https://www.youtube.com/embed/bzFZtsc4Wl4 >}}
+
 I'll cover the following concepts in the screencast, and show how I am using software as I go along.
 
 - What is HTML? What kind of file is it?

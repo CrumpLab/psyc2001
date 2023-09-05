@@ -88,7 +88,7 @@
     "href": "blog/2_Basic_web/index.html#concepts-to-cover",
     "title": "Week 2: Really Basic HTML and Javascript",
     "section": "Concepts to cover",
-    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast, and show how I am using software as I go along.\n\nWhat is HTML? What kind of file is it?\nWeb-browser as a compiler that interprets HTML code and displays it as a web page\nBasic anatomy of an HTML file\nAdding HTML elements to the body\n\nsee w3schools\n\nWhat is Javascript?\nWeb-browser as a javascript compiler that executes javascript code\nJavascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)\n\nLink to text.html"
+    "text": "Concepts to cover\n\nI’ll cover the following concepts in the screencast, and show how I am using software as I go along.\n\nWhat is HTML? What kind of file is it?\nWeb-browser as a compiler that interprets HTML code and displays it as a web page\nBasic anatomy of an HTML file\nAdding HTML elements to the body\n\nsee w3schools\n\nWhat is Javascript?\nWeb-browser as a javascript compiler that executes javascript code\nJavascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)\n\nLink to text.html"
   },
   {
     "objectID": "blog/2_Basic_web/index.html#assignment",
