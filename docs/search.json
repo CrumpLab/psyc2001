@@ -25,7 +25,7 @@
     "href": "blog.html",
     "title": "Course Blog",
     "section": "",
-    "text": "Week 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
+    "text": "Week 3: JsPsych and the simple reaction time tutorial\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nWe look at accessing the JsPsych library and work through the tutorial on writing a simple reaction time tutorial in JsPsych.\n\n\n\n\n\n\nSep 11, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/1_Getting_started/index.html",
@@ -96,6 +96,27 @@
     "title": "Week 2: Really Basic HTML and Javascript",
     "section": "Assignment",
     "text": "Assignment\nCreate your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).\nAdd your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.\n\nExample assignment ideas\nIn a couple weeks we will be making a Stroop experiment demo. Part of this experiment requires being able to present words one at a time in different colors.\nThese are some example stimuli:\n Consider how you would use basic javascript and a button to achieve the following result:\n\nEvery time you click the button a new Stroop item is displayed on the screen.\n\nWe will do this later using jsPsych, but it can be instructive to figure out how to solve problems using basic javascript and html."
+  },
+  {
+    "objectID": "blog/3_jspsych_tutorial/index.html",
+    "href": "blog/3_jspsych_tutorial/index.html",
+    "title": "Week 3: JsPsych and the simple reaction time tutorial",
+    "section": "",
+    "text": "Pre-requisites:\nHave followed along from the previous posts"
+  },
+  {
+    "objectID": "blog/3_jspsych_tutorial/index.html#concepts-to-cover",
+    "href": "blog/3_jspsych_tutorial/index.html#concepts-to-cover",
+    "title": "Week 3: JsPsych and the simple reaction time tutorial",
+    "section": "Concepts to cover",
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nWhat is JsPsych?\n\nOverview of the JsPsych documentation website\n\nGetting JsPsych on your computer\n\ndownloading the library from github\nOr, using links\n\nSimple reaction time tasks\n\nDonders and subtractive logic\nReading: https://www.crumplab.com/cognition/textbook/C7_Information_Processing.html#donders-processing-stages\n\nWalkthrough of the JsPsych simpleRT demo.\n\n\nExample of showing the code works\nLink to test.html"
+  },
+  {
+    "objectID": "blog/3_jspsych_tutorial/index.html#assignment",
+    "href": "blog/3_jspsych_tutorial/index.html#assignment",
+    "title": "Week 3: JsPsych and the simple reaction time tutorial",
+    "section": "Assignment",
+    "text": "Assignment\n\nShow that you can get the JsPsych simple RT demo working and posted to your blog. You should be able to do this based on following along with the documentation and the screencast.\nGeneralize: The reading about Donder’s concept of processing stages discussed three kinds of tasks\n\n\nA basic detection task\nA Go/NO-GO task\nA choice reaction time task\n\nYour assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script."
   },
   {
     "objectID": "index.html",

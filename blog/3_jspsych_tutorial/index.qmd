@@ -1,0 +1,62 @@
+---
+title: "Week 3: JsPsych and the simple reaction time tutorial"
+description: "We look at accessing the JsPsych library and work through the tutorial on writing a simple reaction time tutorial in JsPsych."
+author: "Matt Crump"
+date: 09-11-23
+date-modified: last-modified
+image: week3.jpg
+categories:
+  - Psyc 2001
+  - jspsych
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+Pre-requisites:
+
+Have followed along from the previous posts
+
+{{< video https://www.youtube.com/embed/9IhmZbnQJJQ >}}
+
+## Concepts to cover
+
+I'll cover the following concepts in the screencast and show how I am using software as I go along.
+
+- What is JsPsych?
+  - Overview of the [JsPsych documentation](https://www.jspsych.org/7.3/) website
+  
+- Getting JsPsych on your computer
+  - downloading the [library from github](https://github.com/jspsych/jsPsych)
+  - Or, using links
+
+- Simple reaction time tasks
+  - Donders and subtractive logic
+  - Reading: <https://www.crumplab.com/cognition/textbook/C7_Information_Processing.html#donders-processing-stages>
+  
+- Walkthrough of the JsPsych simpleRT demo.
+
+### Example of showing the code works
+
+[Link to test.html](test.html)
+
+## Assignment
+
+1. Show that you can get the JsPsych simple RT demo working and posted to your blog. You should be able to do this based on following along with the documentation and the screencast.
+
+2. Generalize: The reading about Donder's concept of processing stages discussed three kinds of tasks
+  a. A basic detection task
+  b. A Go/NO-GO task
+  c. A choice reaction time task
+  
+Your assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script.
+
+
+
+
+
+
+
+
+

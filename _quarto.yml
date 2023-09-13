@@ -7,6 +7,8 @@ project:
     port: 4200
   resources:
     - "images/"
+    - "jspsych/"
+    - "img/"
 
 website:
   site-url: "https://crumplab.com/psyc2001/"

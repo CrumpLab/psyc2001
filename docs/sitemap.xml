@@ -2,30 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://crumplab.com/psyc2001/about.html</loc>
-    <lastmod>2023-09-05T20:06:00.345Z</lastmod>
+    <lastmod>2023-09-13T20:28:22.665Z</lastmod>
   </url>
   <url>
     <loc>https://crumplab.com/psyc2001/blog.html</loc>
-    <lastmod>2023-09-05T20:06:00.675Z</lastmod>
+    <lastmod>2023-09-13T20:28:23.105Z</lastmod>
   </url>
   <url>
     <loc>https://crumplab.com/psyc2001/blog/1_Getting_started/index.html</loc>
-    <lastmod>2023-09-05T20:06:00.936Z</lastmod>
+    <lastmod>2023-09-13T20:28:23.425Z</lastmod>
   </url>
   <url>
     <loc>https://crumplab.com/psyc2001/blog/2_Basic_web/index.html</loc>
-    <lastmod>2023-09-05T20:06:01.220Z</lastmod>
+    <lastmod>2023-09-13T20:28:23.746Z</lastmod>
+  </url>
+  <url>
+    <loc>https://crumplab.com/psyc2001/blog/3_jspsych_tutorial/index.html</loc>
+    <lastmod>2023-09-13T20:28:24.026Z</lastmod>
   </url>
   <url>
     <loc>https://crumplab.com/psyc2001/index.html</loc>
-    <lastmod>2023-09-05T20:06:02.802Z</lastmod>
+    <lastmod>2023-09-13T20:28:24.619Z</lastmod>
   </url>
   <url>
     <loc>https://crumplab.com/psyc2001/resources.html</loc>
-    <lastmod>2023-09-05T20:06:04.392Z</lastmod>
+    <lastmod>2023-09-13T20:28:25.221Z</lastmod>
   </url>
   <url>
     <loc>https://crumplab.com/psyc2001/syllabus.html</loc>
-    <lastmod>2023-09-05T20:06:04.761Z</lastmod>
+    <lastmod>2023-09-13T20:28:25.648Z</lastmod>
   </url>
 </urlset>

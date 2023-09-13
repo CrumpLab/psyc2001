@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/blog/3_jspsych_tutorial/index.html",
       "/blog/2_Basic_web/index.html",
       "/blog/1_Getting_started/index.html"
     ]
