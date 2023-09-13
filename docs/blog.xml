@@ -59,8 +59,14 @@
 <li>A choice reaction time task</li>
 </ol>
 <p>Your assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script.</p>
+<section id="advanced" class="level3">
+<h3 class="anchored" data-anchor-id="advanced">Advanced</h3>
+<p>If you are looking for an advanced challenge, then attempt the following.</p>
+<p>A researcher may want to conduct the above 3 different versions of a reaction time task for the same participant. Produce a script that presents each task one after the other.</p>
+<p>Additionally, a researcher may want to control or randomize the sequence of each task. Produce a script that randomizes task order.</p>
 
 
+</section>
 </section>
 
  ]]></description>

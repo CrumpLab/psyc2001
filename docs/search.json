@@ -116,7 +116,7 @@
     "href": "blog/3_jspsych_tutorial/index.html#assignment",
     "title": "Week 3: JsPsych and the simple reaction time tutorial",
     "section": "Assignment",
-    "text": "Assignment\n\nShow that you can get the JsPsych simple RT demo working and posted to your blog. You should be able to do this based on following along with the documentation and the screencast.\nGeneralize: The reading about Donder’s concept of processing stages discussed three kinds of tasks\n\n\nA basic detection task\nA Go/NO-GO task\nA choice reaction time task\n\nYour assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script."
+    "text": "Assignment\n\nShow that you can get the JsPsych simple RT demo working and posted to your blog. You should be able to do this based on following along with the documentation and the screencast.\nGeneralize: The reading about Donder’s concept of processing stages discussed three kinds of tasks\n\n\nA basic detection task\nA Go/NO-GO task\nA choice reaction time task\n\nYour assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script.\n\nAdvanced\nIf you are looking for an advanced challenge, then attempt the following.\nA researcher may want to conduct the above 3 different versions of a reaction time task for the same participant. Produce a script that presents each task one after the other.\nAdditionally, a researcher may want to control or randomize the sequence of each task. Produce a script that randomizes task order."
   },
   {
     "objectID": "index.html",

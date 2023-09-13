@@ -53,7 +53,13 @@ I'll cover the following concepts in the screencast and show how I am using soft
 Your assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script.
 
 
+### Advanced
 
+If you are looking for an advanced challenge, then attempt the following. 
+
+A researcher may want to conduct the above 3 different versions of a reaction time task for the same participant. Produce a script that presents each task one after the other. 
+
+Additionally, a researcher may want to control or randomize the sequence of each task. Produce a script that randomizes task order.
 
 
 
