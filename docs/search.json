@@ -25,7 +25,7 @@
     "href": "blog.html",
     "title": "Course Blog",
     "section": "",
-    "text": "Week 3: JsPsych and the simple reaction time tutorial\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nWe look at accessing the JsPsych library and work through the tutorial on writing a simple reaction time tutorial in JsPsych.\n\n\n\n\n\n\nSep 11, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
+    "text": "Week 4: Programming a Stroop experiment in JsPsych\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nHow to program a basic Stroop experiment in JsPsych, and some considerations of various design parameters.\n\n\n\n\n\n\nSep 19, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 3: JsPsych and the simple reaction time tutorial\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nWe look at accessing the JsPsych library and work through the tutorial on writing a simple reaction time tutorial in JsPsych.\n\n\n\n\n\n\nSep 11, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n  \n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/1_Getting_started/index.html",
@@ -236,5 +236,26 @@
     "title": "Psyc 2001 Syllabus",
     "section": "The Rights of Undocumented Students",
     "text": "The Rights of Undocumented Students\nAs an educator, I support the rights of undocumented students to an education. For resources and support, please visit Brooklyn College’s Immigrant Student Support Office located at 117 Roosevelt Hall. You can also contact them via email at ISSO@brooklyn.cuny.edu or via phone at 718-951-5023."
+  },
+  {
+    "objectID": "blog/4_stroop/index.html",
+    "href": "blog/4_stroop/index.html",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "",
+    "text": "Pre-requisites:\nHave followed along from the previous posts"
+  },
+  {
+    "objectID": "blog/4_stroop/index.html#concepts-to-cover",
+    "href": "blog/4_stroop/index.html#concepts-to-cover",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "Concepts to cover",
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nWhat is a Stroop Experiment?\n\nReadings:\nLogan, G. D., & Zbrodoff, N. J. (1998). Stroop-type interference: Congruity effects in color naming with typewritten responses. Journal of Experimental Psychology: Human Perception and Performance, 24(3), 978–992. https://doi.org/10.1037/0096-1523.24.3.978\nMacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163. https://doi.org/10.1037/0033-2909.109.2.163\n\nProgramming a basic Stroop experiment in JsPsych from scratch\nAdditional considerations\n\nElements around the main experiment\n\nwelcoming people, explaining the task, making sure they understand, giving feedback, debriefing them.\n\nDesign considerations:\n\ndifferent response modalities (button press vs. typing vs. voice key)\nProportion manipulations\nsequence manipulations\n\n\n\n\nLinks to example code\nBasic stroop example"
+  },
+  {
+    "objectID": "blog/4_stroop/index.html#assignment",
+    "href": "blog/4_stroop/index.html#assignment",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "Assignment",
+    "text": "Assignment\n\nDemonstrate that you can get the Stroop tutorial example working on your Quarto blog. Feel free to attempt writing your own version of a Stroop experiment from scratch, this is the best way to learn. For this course, and at this stage, it is also fine if you obtain my example code and demonstrate that you can get it working on your quarto blog (e.g., produce a link that runs the experiment.)\nBrainstorm a manipulation that you think might change the size of the Stroop effect. For example, would making the color words bigger make it even harder to ignore the words, and therefore produce a larger Stroop effect (compared to trials where the words were much smaller and harder to read, and therefore easier to ignore)?\nProduce a version of the Stroop experiment that deploys your manipulation. In the example above, you would need to have some trials where the word appears in a small font and others where it appears in a large font.\n\n\nAdvanced\nWe will cover data analysis next week, but if you want to find out whether your manipulation worked, then you will need to analyze your data in each condition. See if you can find a way to do this. Did your manipulation succesfully cause a change in the size of the Stroop effect?"
   }
 ]
