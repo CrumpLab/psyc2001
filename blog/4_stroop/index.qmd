@@ -16,7 +16,16 @@ execute:
 
 Pre-requisites:
 
-Have followed along from the previous posts
+Have followed along from the previous posts.
+
+## Part 1: Basic Stroop
+
+{{< video https://www.youtube.com/embed/zH9LrcIHIIc >}}
+
+## Part 2: Using a script to generate a stimulus array
+
+{{< video https://www.youtube.com/embed/DpTOheveByc >}}
+
 
 ## Concepts to cover
 
@@ -43,7 +52,11 @@ MacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integ
 
 ### Links to example code
 
+Remember, you can view the source code from github repository for this website.
+
 [Basic stroop example](stroop.html)
+
+[Second Stroop example](stroop_2.html)
 
 ## Assignment
 
