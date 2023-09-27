@@ -1,10 +1,10 @@
 ---
 title: "Week 5: Analyzing data from a Stroop experiment in R"
-description: "Last week we programming a basic Stroop experiment using jspsych, and this week we take a quick look at analyzing the data using R."
+description: "Last week we programmed a basic Stroop experiment using jspsych, and this week we take a quick look at analyzing the data using R."
 author: "Matt Crump"
 date: 09-27-23
 date-modified: last-modified
-image: "week5.jpg"
+image: week5.jpg
 categories:
   - Psyc 2001
   - Stroop
