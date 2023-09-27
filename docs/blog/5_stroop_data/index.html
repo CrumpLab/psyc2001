@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Matt Crump">
-<meta name="dcterms.date" content="2023-09-05">
-<meta name="description" content="Basic web coding concepts for complete beginners, and some suggestions for software usage in this course.">
+<meta name="dcterms.date" content="2023-09-27">
+<meta name="description" content="Last week we programming a basic Stroop experiment using jspsych, and this week we take a quick look at analyzing the data using R.">
 
-<title>psyc2001 - Week 2: Really Basic HTML and Javascript</title>
+<title>psyc2001 - Week 5: Analyzing data from a Stroop experiment in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -137,31 +171,34 @@ gtag('config', 'G-5115L6KWX7', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a></li>
+  <li><a href="#screencast" id="toc-screencast" class="nav-link active" data-scroll-target="#screencast">Screencast</a></li>
   <li><a href="#concepts-to-cover" id="toc-concepts-to-cover" class="nav-link" data-scroll-target="#concepts-to-cover">Concepts to cover</a></li>
-  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#example-code" id="toc-example-code" class="nav-link" data-scroll-target="#example-code">Example code</a>
   <ul class="collapse">
-  <li><a href="#example-assignment-ideas" id="toc-example-assignment-ideas" class="nav-link" data-scroll-target="#example-assignment-ideas">Example assignment ideas</a></li>
+  <li><a href="#loading-libraries-and-importing-data" id="toc-loading-libraries-and-importing-data" class="nav-link" data-scroll-target="#loading-libraries-and-importing-data">Loading libraries and importing data</a></li>
+  <li><a href="#reaction-time-analysis" id="toc-reaction-time-analysis" class="nav-link" data-scroll-target="#reaction-time-analysis">Reaction time analysis</a></li>
+  <li><a href="#accuracy-analysis" id="toc-accuracy-analysis" class="nav-link" data-scroll-target="#accuracy-analysis">Accuracy analysis</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/CrumpLab/psyc2001/edit/main/blog/2_Basic_web/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CrumpLab/psyc2001/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/CrumpLab/psyc2001/edit/main/blog/5_stroop_data/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/CrumpLab/psyc2001/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 2: Really Basic HTML and Javascript</h1>
+<h1 class="title">Week 5: Analyzing data from a Stroop experiment in R</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Psyc 2001</div>
-    <div class="quarto-category">jspsych</div>
+    <div class="quarto-category">Stroop</div>
+    <div class="quarto-category">R</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Basic web coding concepts for complete beginners, and some suggestions for software usage in this course.
+    Last week we programming a basic Stroop experiment using jspsych, and this week we take a quick look at analyzing the data using R.
   </div>
 </div>
 
@@ -178,14 +215,14 @@ gtag('config', 'G-5115L6KWX7', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 5, 2023</p>
+      <p class="date">September 27, 2023</p>
     </div>
   </div>
   
     <div>
     <div class="quarto-title-meta-heading">Modified</div>
     <div class="quarto-title-meta-contents">
-      <p class="date-modified">September 5, 2023</p>
+      <p class="date-modified">September 27, 2023</p>
     </div>
   </div>
     
@@ -197,48 +234,159 @@ gtag('config', 'G-5115L6KWX7', { 'anonymize_ip': true});
 
 
 <p>Pre-requisites:</p>
-<p>This post assumes that you have a quarto blog up and running (see last post).</p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The purpose of this week is to make sure we understand some very basic web programming concepts before attempting to code cognitive psych experiments with jsPsych.</p>
-<p>If you already have experience coding for the web, that’s great, and this may be a review for you.</p>
-</section>
-<section id="software" class="level2">
-<h2 class="anchored" data-anchor-id="software">Software</h2>
-<p>You should already have R Studio and R installed, as well as Github desktop. We will be using these tools throughout the course.</p>
-<p>To program for the web you really only need a text editor (to write the code), and web-browser (to check that it works). We will use the text editor inside R studio (it’s totally fine if you want to use a different one). My preferred web-browser for debugging code is <a href="https://www.mozilla.org/en-US/firefox/new/">firefox</a>. Google chrome is fine too. Safari for mac is OK.</p>
+<p>Have followed along from the previous posts.</p>
+<section id="screencast" class="level2">
+<h2 class="anchored" data-anchor-id="screencast">Screencast</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wCxfCTXyguo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="concepts-to-cover" class="level2">
 <h2 class="anchored" data-anchor-id="concepts-to-cover">Concepts to cover</h2>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/bzFZtsc4Wl4" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
-<p>I’ll cover the following concepts in the screencast, and show how I am using software as I go along.</p>
+<p>I’ll cover the following concepts in the screencast and show how I am using software as I go along.</p>
 <ul>
-<li><p>What is HTML? What kind of file is it?</p></li>
-<li><p>Web-browser as a compiler that interprets HTML code and displays it as a web page</p></li>
-<li><p>Basic anatomy of an HTML file</p></li>
-<li><p>Adding HTML elements to the body</p>
+<li><p>piloting an experiment</p></li>
+<li><p>saving data</p>
 <ul>
-<li>see <a href="https://www.w3schools.com/html/default.asp">w3schools</a></li>
+<li>copy from the screen</li>
+<li>save to csv</li>
 </ul></li>
-<li><p>What is Javascript?</p></li>
-<li><p>Web-browser as a javascript compiler that executes javascript code</p></li>
-<li><p>Javascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)</p></li>
+<li><p>quick R review</p>
+<ul>
+<li>obtaining necessary packages</li>
+<li>R code chunks</li>
+</ul></li>
+<li><p>Scripting the analysis</p>
+<ul>
+<li>load the data into T</li>
+<li>tidyverse pipeline to get individual subject means in all conditions</li>
+<li>group means</li>
+<li>plotting the data using ggplot2</li>
+</ul></li>
 </ul>
-<p><a href="test.html">Link to text.html</a></p>
 </section>
 <section id="assignment" class="level2">
 <h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
-<p>Create your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).</p>
-<p>Add your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.</p>
-<section id="example-assignment-ideas" class="level3">
-<h3 class="anchored" data-anchor-id="example-assignment-ideas">Example assignment ideas</h3>
-<p>In a couple weeks we will be making a Stroop experiment demo. Part of this experiment requires being able to present words one at a time in different colors.</p>
-<p>These are some example stimuli:</p>
-<p><img src="Stroop.png" class="img-fluid"> Consider how you would use basic javascript and a button to achieve the following result:</p>
 <ol type="1">
-<li>Every time you click the button a new Stroop item is displayed on the screen.</li>
+<li><p>Obtain the sample data from this tutorial (you can get them from the github repository for this blog). Show that you can conduct the analysis in your blog post.</p></li>
+<li><p>Create pilot data from your own Stroop experiment by running yourself as a participant a few times.</p></li>
+<li><p>Analyse the data in R by modifying the example scripts as necessary.</p></li>
 </ol>
-<p>We will do this later using jsPsych, but it can be instructive to figure out how to solve problems using basic javascript and html.</p>
+</section>
+<section id="example-code" class="level2">
+<h2 class="anchored" data-anchor-id="example-code">Example code</h2>
+<p>The following example code shows some minimal examples for analyzing RT and accuracy data from a basic Stroop experiment.</p>
+<section id="loading-libraries-and-importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-libraries-and-importing-data">Loading libraries and importing data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install from the Packages tab, or run the below in the console once.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('tidyverse')</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rio')</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load libraries</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># get data file names</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>file_names <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data"</span>,<span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize data frame to hold individual subject data</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>all_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># loop through each file and import</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(file_names)) {</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># import a single data file to a temporary data frame</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  temp_df <span class="ot">&lt;-</span> rio<span class="sc">::</span><span class="fu">import</span>(file_names[i]) <span class="sc">%&gt;%</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">subject =</span> i)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># append the single subject data to larger data frame</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  all_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(all_data,temp_df)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="reaction-time-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="reaction-time-analysis">Reaction time analysis</h3>
+<p>Goal: get individual subject mean reaction times for correct trials. Create a plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-process and filter rows</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(task <span class="sc">==</span> <span class="st">"stroop"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         correct <span class="sc">==</span> <span class="st">"TRUE"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rt =</span> <span class="fu">as.numeric</span>(rt))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># get individual subject means in each condition</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>subject_mean_RT <span class="ot">&lt;-</span> filtered_data <span class="sc">%&gt;%</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subject,congruency) <span class="sc">%&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_rt =</span> <span class="fu">mean</span>(rt), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># get group means in each condition</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>group_mean_RT <span class="ot">&lt;-</span> subject_mean_RT <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(congruency) <span class="sc">%&gt;%</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_reaction_time =</span> <span class="fu">mean</span>(mean_rt),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">sem =</span> <span class="fu">sd</span>(mean_rt)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(mean_rt))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(group_mean_RT, <span class="fu">aes</span>(<span class="at">x=</span>congruency,<span class="at">y=</span>mean_reaction_time)) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>mean_reaction_time<span class="sc">-</span>sem,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>mean_reaction_time<span class="sc">+</span>sem),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                <span class="at">width=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Mean Reaction Time (ms)"</span>) <span class="sc">+</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Congruency"</span>)<span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">400</span>,<span class="dv">800</span>)) <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="index_files/figure-html/unnamed-chunk-2-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="accuracy-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="accuracy-analysis">Accuracy analysis</h3>
+<p>Goal: get individual subject proportion correct. Create a plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-process and filter rows</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>filtered_data_pc <span class="ot">&lt;-</span> all_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(task <span class="sc">==</span> <span class="st">"stroop"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get individual subject proportion correct values</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>subject_pc <span class="ot">&lt;-</span> filtered_data_pc <span class="sc">%&gt;%</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(subject,congruency) <span class="sc">%&gt;%</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">proportion_correct =</span> <span class="fu">mean</span>(correct), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># get group means in each condition</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>group_mean_pc <span class="ot">&lt;-</span> subject_pc <span class="sc">%&gt;%</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(congruency) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_proportion_correct =</span> <span class="fu">mean</span>(proportion_correct),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">sem =</span> <span class="fu">sd</span>(proportion_correct)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">length</span>(proportion_correct))</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="co"># plot</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(group_mean_pc, <span class="fu">aes</span>(<span class="at">x=</span>congruency,<span class="at">y=</span>mean_proportion_correct)) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>mean_proportion_correct<span class="sc">-</span>sem,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">ymax=</span>mean_proportion_correct<span class="sc">+</span>sem),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                <span class="at">width=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Mean Proportion Correct"</span>) <span class="sc">+</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Congruency"</span>)<span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim=</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="index_files/figure-html/unnamed-chunk-3-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>

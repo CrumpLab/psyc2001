@@ -9,13 +9,508 @@
 <link>https://crumplab.com/psyc2001/blog.html</link>
 <atom:link href="https://crumplab.com/psyc2001/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
-<generator>quarto-1.3.353</generator>
-<lastBuildDate>Tue, 19 Sep 2023 04:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.386</generator>
+<lastBuildDate>Wed, 27 Sep 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Week 5: Analyzing data from a Stroop experiment in R</title>
+  <dc:creator>Matt Crump</dc:creator>
+  <link>https://crumplab.com/psyc2001/blog/5_stroop_data/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Pre-requisites:</p>
+<p>Have followed along from the previous posts.</p>
+<section id="screencast" class="level2">
+<h2 class="anchored" data-anchor-id="screencast">Screencast</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/wCxfCTXyguo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="concepts-to-cover" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-cover">Concepts to cover</h2>
+<p>I’ll cover the following concepts in the screencast and show how I am using software as I go along.</p>
+<ul>
+<li><p>piloting an experiment</p></li>
+<li><p>saving data</p>
+<ul>
+<li>copy from the screen</li>
+<li>save to csv</li>
+</ul></li>
+<li><p>quick R review</p>
+<ul>
+<li>obtaining necessary packages</li>
+<li>R code chunks</li>
+</ul></li>
+<li><p>Scripting the analysis</p>
+<ul>
+<li>load the data into T</li>
+<li>tidyverse pipeline to get individual subject means in all conditions</li>
+<li>group means</li>
+<li>plotting the data using ggplot2</li>
+</ul></li>
+</ul>
+</section>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<ol type="1">
+<li><p>Obtain the sample data from this tutorial (you can get them from the github repository for this blog). Show that you can conduct the analysis in your blog post.</p></li>
+<li><p>Create pilot data from your own Stroop experiment by running yourself as a participant a few times.</p></li>
+<li><p>Analyse the data in R by modifying the example scripts as necessary.</p></li>
+</ol>
+</section>
+<section id="example-code" class="level2">
+<h2 class="anchored" data-anchor-id="example-code">Example code</h2>
+<p>The following example code shows some minimal examples for analyzing RT and accuracy data from a basic Stroop experiment.</p>
+<section id="loading-libraries-and-importing-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-libraries-and-importing-data">Loading libraries and importing data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># install from the Packages tab, or run the below in the console once.</span></span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#install.packages('tidyverse')</span></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#install.packages('rio')</span></span>
+<span id="cb1-4"></span>
+<span id="cb1-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># load libraries</span></span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)</span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(rio)</span>
+<span id="cb1-8"></span>
+<span id="cb1-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get data file names</span></span>
+<span id="cb1-10">file_names <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list.files</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"data"</span>,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">full.names =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb1-11"></span>
+<span id="cb1-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># initialize data frame to hold individual subject data</span></span>
+<span id="cb1-13">all_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tibble</span>()</span>
+<span id="cb1-14"></span>
+<span id="cb1-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># loop through each file and import</span></span>
+<span id="cb1-16"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(file_names)) {</span>
+<span id="cb1-17">  </span>
+<span id="cb1-18">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># import a single data file to a temporary data frame</span></span>
+<span id="cb1-19">  temp_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> rio<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">import</span>(file_names[i]) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-20">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">subject =</span> i)</span>
+<span id="cb1-21">  </span>
+<span id="cb1-22">  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># append the single subject data to larger data frame</span></span>
+<span id="cb1-23">  all_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(all_data,temp_df)</span>
+<span id="cb1-24">  </span>
+<span id="cb1-25">}</span></code></pre></div>
+</div>
+</section>
+<section id="reaction-time-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="reaction-time-analysis">Reaction time analysis</h3>
+<p>Goal: get individual subject mean reaction times for correct trials. Create a plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pre-process and filter rows</span></span>
+<span id="cb2-2">filtered_data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> all_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(task <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"stroop"</span>,</span>
+<span id="cb2-4">         correct <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"TRUE"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-5">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rt =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">as.numeric</span>(rt))</span>
+<span id="cb2-6"></span>
+<span id="cb2-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get individual subject means in each condition</span></span>
+<span id="cb2-8">subject_mean_RT <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> filtered_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-9">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(subject,congruency) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-10">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean_rt =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(rt), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"drop"</span>)</span>
+<span id="cb2-11"></span>
+<span id="cb2-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get group means in each condition</span></span>
+<span id="cb2-13">group_mean_RT <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> subject_mean_RT <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(congruency) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb2-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean_reaction_time =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(mean_rt),</span>
+<span id="cb2-16">            <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sem =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(mean_rt)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(mean_rt))</span>
+<span id="cb2-17">            )</span>
+<span id="cb2-18"></span>
+<span id="cb2-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot</span></span>
+<span id="cb2-20"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(group_mean_RT, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>congruency,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>mean_reaction_time)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin=</span>mean_reaction_time<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>sem,</span>
+<span id="cb2-23">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax=</span>mean_reaction_time<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>sem),</span>
+<span id="cb2-24">                <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-25">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean Reaction Time (ms)"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-26">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Congruency"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-27">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">400</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">800</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb2-28">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_classic</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="https://crumplab.com/psyc2001/blog/5_stroop_data/index_files/figure-html/unnamed-chunk-2-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="accuracy-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="accuracy-analysis">Accuracy analysis</h3>
+<p>Goal: get individual subject proportion correct. Create a plot</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pre-process and filter rows</span></span>
+<span id="cb3-2">filtered_data_pc <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> all_data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">filter</span>(task <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"stroop"</span>)</span>
+<span id="cb3-4"></span>
+<span id="cb3-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get individual subject proportion correct values</span></span>
+<span id="cb3-6">subject_pc <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> filtered_data_pc <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-7">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(subject,congruency) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-8">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">proportion_correct =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(correct), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">.groups =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"drop"</span>)</span>
+<span id="cb3-9"></span>
+<span id="cb3-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># get group means in each condition</span></span>
+<span id="cb3-11">group_mean_pc <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> subject_pc <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(congruency) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb3-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean_proportion_correct =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(proportion_correct),</span>
+<span id="cb3-14">            <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">sem =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sd</span>(proportion_correct)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sqrt</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">length</span>(proportion_correct))</span>
+<span id="cb3-15">            )</span>
+<span id="cb3-16"></span>
+<span id="cb3-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot</span></span>
+<span id="cb3-18"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(group_mean_pc, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x=</span>congruency,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y=</span>mean_proportion_correct)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stat=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"identity"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin=</span>mean_proportion_correct<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>sem,</span>
+<span id="cb3-21">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax=</span>mean_proportion_correct<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>sem),</span>
+<span id="cb3-22">                <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width=</span>.<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-23">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ylab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Mean Proportion Correct"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-24">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">xlab</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Congruency"</span>)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-25">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb3-26">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_classic</span>()</span></code></pre></div>
+<div class="cell-output-display">
+<div id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div>
+<img src="https://crumplab.com/psyc2001/blog/5_stroop_data/index_files/figure-html/unnamed-chunk-3-1.png" id="fig-539a35d47e664c97a50115a146a7f1bd-2" class="img-fluid figure-img" width="672">
+</div>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>Psyc 2001</category>
+  <category>Stroop</category>
+  <category>R</category>
+  <guid>https://crumplab.com/psyc2001/blog/5_stroop_data/</guid>
+  <pubDate>Wed, 27 Sep 2023 04:00:00 GMT</pubDate>
+  <media:content url="https://crumplab.com/psyc2001/blog/5_stroop_data/week5.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Week 4: Programming a Stroop experiment in JsPsych</title>
   <dc:creator>Matt Crump</dc:creator>
-  <link>https://crumplab.com/psyc2001/blog/4_stroop/index.html</link>
+  <link>https://crumplab.com/psyc2001/blog/4_stroop/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -79,15 +574,16 @@
  ]]></description>
   <category>Psyc 2001</category>
   <category>jspsych</category>
-  <guid>https://crumplab.com/psyc2001/blog/4_stroop/index.html</guid>
+  <guid>https://crumplab.com/psyc2001/blog/4_stroop/</guid>
   <pubDate>Tue, 19 Sep 2023 04:00:00 GMT</pubDate>
   <media:content url="https://crumplab.com/psyc2001/blog/4_stroop/week4.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Week 3: JsPsych and the simple reaction time tutorial</title>
   <dc:creator>Matt Crump</dc:creator>
-  <link>https://crumplab.com/psyc2001/blog/3_jspsych_tutorial/index.html</link>
+  <link>https://crumplab.com/psyc2001/blog/3_jspsych_tutorial/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -144,15 +640,16 @@
  ]]></description>
   <category>Psyc 2001</category>
   <category>jspsych</category>
-  <guid>https://crumplab.com/psyc2001/blog/3_jspsych_tutorial/index.html</guid>
+  <guid>https://crumplab.com/psyc2001/blog/3_jspsych_tutorial/</guid>
   <pubDate>Mon, 11 Sep 2023 04:00:00 GMT</pubDate>
   <media:content url="https://crumplab.com/psyc2001/blog/3_jspsych_tutorial/week3.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Week 2: Really Basic HTML and Javascript</title>
   <dc:creator>Matt Crump</dc:creator>
-  <link>https://crumplab.com/psyc2001/blog/2_Basic_web/index.html</link>
+  <link>https://crumplab.com/psyc2001/blog/2_Basic_web/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -207,15 +704,16 @@
  ]]></description>
   <category>Psyc 2001</category>
   <category>jspsych</category>
-  <guid>https://crumplab.com/psyc2001/blog/2_Basic_web/index.html</guid>
+  <guid>https://crumplab.com/psyc2001/blog/2_Basic_web/</guid>
   <pubDate>Tue, 05 Sep 2023 04:00:00 GMT</pubDate>
   <media:content url="https://crumplab.com/psyc2001/blog/2_Basic_web/Basic.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
 <item>
   <title>Week 1: Installing software and getting your Quarto Blog working</title>
   <dc:creator>Matt Crump</dc:creator>
-  <link>https://crumplab.com/psyc2001/blog/1_Getting_started/index.html</link>
+  <link>https://crumplab.com/psyc2001/blog/1_Getting_started/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -249,7 +747,7 @@
 </section>
 
  ]]></description>
-  <guid>https://crumplab.com/psyc2001/blog/1_Getting_started/index.html</guid>
+  <guid>https://crumplab.com/psyc2001/blog/1_Getting_started/</guid>
   <pubDate>Thu, 31 Aug 2023 04:00:00 GMT</pubDate>
   <media:content url="https://crumplab.com/psyc2001/blog/1_Getting_started/quarto.png" medium="image" type="image/png" height="144" width="144"/>
 </item>
