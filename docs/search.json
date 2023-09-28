@@ -306,5 +306,12 @@
     "title": "Course Resources",
     "section": "datapipe",
     "text": "datapipe\nThis is a tool for serving JsPsych experiments from Github Pages and having data routed to an OSF repository. This allows for a “server-less” way to collect data.\nhttps://pipe.jspsych.org"
+  },
+  {
+    "objectID": "blog/5_stroop_data/index.html#r-resources",
+    "href": "blog/5_stroop_data/index.html#r-resources",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "section": "R Resources",
+    "text": "R Resources\nWe did not spend much time introducing R. Hopefully the screencast is enough to get you started with the example scripts below.\nHere are some additional resources for learning R.\n\nTutorials from an R statistics course\nBasic coding reference\nHuge list of R resources"
   }
 ]

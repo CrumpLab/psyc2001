@@ -50,6 +50,16 @@
 </ul></li>
 </ul>
 </section>
+<section id="r-resources" class="level2">
+<h2 class="anchored" data-anchor-id="r-resources">R Resources</h2>
+<p>We did not spend much time introducing R. Hopefully the screencast is enough to get you started with the example scripts below.</p>
+<p>Here are some additional resources for learning R.</p>
+<ul>
+<li><p><a href="https://www.crumplab.com/rstatsmethods/articles/Stats1/Lab1_Basics.html">Tutorials from an R statistics course</a></p></li>
+<li><p><a href="https://www.crumplab.com/rstatsmethods/articles/course_docs/reference_code.html">Basic coding reference</a></p></li>
+<li><p><a href="https://paulvanderlaken.com/2017/08/10/r-resources-cheatsheets-tutorials-books/">Huge list of R resources</a></p></li>
+</ul>
+</section>
 <section id="assignment" class="level2">
 <h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
 <ol type="1">

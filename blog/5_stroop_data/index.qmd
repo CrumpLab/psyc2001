@@ -42,6 +42,18 @@ I'll cover the following concepts in the screencast and show how I am using soft
   - tidyverse pipeline to get individual subject means in all conditions
   - group means
   - plotting the data using ggplot2
+  
+## R Resources
+
+We did not spend much time introducing R. Hopefully the screencast is enough to get you started with the example scripts below. 
+
+Here are some additional resources for learning R.
+
+- [Tutorials from an R statistics course](https://www.crumplab.com/rstatsmethods/articles/Stats1/Lab1_Basics.html)
+
+- [Basic coding reference](https://www.crumplab.com/rstatsmethods/articles/course_docs/reference_code.html)
+
+- [Huge list of R resources](https://paulvanderlaken.com/2017/08/10/r-resources-cheatsheets-tutorials-books/)
 
 ## Assignment
 
