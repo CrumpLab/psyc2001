@@ -1,0 +1,47 @@
+---
+title: "Week 6: Picture memory"
+description: "This week we program a replication of a classic picture memory experiment."
+author: "Matt Crump"
+date: 10-4-23
+date-modified: last-modified
+image: 'week_6.jpeg'
+categories:
+  - Psyc 2001
+  - Pictures
+  - Recognition Memory
+resources: 
+  - images
+  - stimuli.js
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+Pre-requisites:
+
+Have followed along from the previous posts.
+
+## Screencast
+
+{{< video https://www.youtube.com/embed/-kCpvpyBE0c >}}
+
+## Concepts to cover
+
+I'll cover the following concepts in the screencast and show how I am using software as I go along.
+
+- Potter, M. C., & Levy, E. I. (1969). Recognition memory for a rapid sequence of pictures. Journal of Experimental Psychology, 81(1), 10.
+
+
+- Programming a version of the experiment in jsPsych
+
+## Demo Experiment
+
+(link to experiment)[picture.html]
+  
+## Assignment
+
+1. Obtain the sample code from the tutorial and images. Demonstrate that you can get the experiment running on your blog.
+
+2. Attempt to program a different manipulation that you think would influence recognition memory for pictures.
+

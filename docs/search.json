@@ -70,102 +70,67 @@
     "text": "Instructor: Matthew Crump\nTerm: Fall 2023, Brooklyn College of CUNY\nEmail: mcrump@brooklyn.cuny.edu\nThis course website contains resources that we will use throughout the semester to learn JsPsych for programming cognitive psychology experiments. This website is also built using quarto and hosted using Github Pages. The source code for this website can be copied and/or used an example for your own blogs and websites for this course."
   },
   {
-    "objectID": "blog/4_stroop/index.html",
-    "href": "blog/4_stroop/index.html",
-    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "objectID": "blog/5_stroop_data/index.html",
+    "href": "blog/5_stroop_data/index.html",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
     "section": "",
     "text": "Pre-requisites:\nHave followed along from the previous posts."
   },
   {
-    "objectID": "blog/4_stroop/index.html#part-1-basic-stroop",
-    "href": "blog/4_stroop/index.html#part-1-basic-stroop",
-    "title": "Week 4: Programming a Stroop experiment in JsPsych",
-    "section": "Part 1: Basic Stroop",
-    "text": "Part 1: Basic Stroop"
+    "objectID": "blog/5_stroop_data/index.html#screencast",
+    "href": "blog/5_stroop_data/index.html#screencast",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "section": "Screencast",
+    "text": "Screencast"
   },
   {
-    "objectID": "blog/4_stroop/index.html#part-2-using-a-script-to-generate-a-stimulus-array",
-    "href": "blog/4_stroop/index.html#part-2-using-a-script-to-generate-a-stimulus-array",
-    "title": "Week 4: Programming a Stroop experiment in JsPsych",
-    "section": "Part 2: Using a script to generate a stimulus array",
-    "text": "Part 2: Using a script to generate a stimulus array"
-  },
-  {
-    "objectID": "blog/4_stroop/index.html#concepts-to-cover",
-    "href": "blog/4_stroop/index.html#concepts-to-cover",
-    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "objectID": "blog/5_stroop_data/index.html#concepts-to-cover",
+    "href": "blog/5_stroop_data/index.html#concepts-to-cover",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
     "section": "Concepts to cover",
-    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nWhat is a Stroop Experiment?\n\nReadings:\nLogan, G. D., & Zbrodoff, N. J. (1998). Stroop-type interference: Congruity effects in color naming with typewritten responses. Journal of Experimental Psychology: Human Perception and Performance, 24(3), 978–992. https://doi.org/10.1037/0096-1523.24.3.978\nMacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163. https://doi.org/10.1037/0033-2909.109.2.163\n\nProgramming a basic Stroop experiment in JsPsych from scratch\nAdditional considerations\n\nElements around the main experiment\n\nwelcoming people, explaining the task, making sure they understand, giving feedback, debriefing them.\n\nDesign considerations:\n\ndifferent response modalities (button press vs. typing vs. voice key)\nProportion manipulations\nsequence manipulations\n\n\n\n\nLinks to example code\nRemember, you can view the source code from github repository for this website.\nBasic stroop example\nSecond Stroop example"
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\npiloting an experiment\nsaving data\n\ncopy from the screen\nsave to csv\n\nquick R review\n\nobtaining necessary packages\nR code chunks\n\nScripting the analysis\n\nload the data into T\ntidyverse pipeline to get individual subject means in all conditions\ngroup means\nplotting the data using ggplot2"
   },
   {
-    "objectID": "blog/4_stroop/index.html#assignment",
-    "href": "blog/4_stroop/index.html#assignment",
-    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "objectID": "blog/5_stroop_data/index.html#r-resources",
+    "href": "blog/5_stroop_data/index.html#r-resources",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "section": "R Resources",
+    "text": "R Resources\nWe did not spend much time introducing R. Hopefully the screencast is enough to get you started with the example scripts below.\nHere are some additional resources for learning R.\n\nTutorials from an R statistics course\nBasic coding reference\nHuge list of R resources"
+  },
+  {
+    "objectID": "blog/5_stroop_data/index.html#assignment",
+    "href": "blog/5_stroop_data/index.html#assignment",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
     "section": "Assignment",
-    "text": "Assignment\n\nDemonstrate that you can get the Stroop tutorial example working on your Quarto blog. Feel free to attempt writing your own version of a Stroop experiment from scratch, this is the best way to learn. For this course, and at this stage, it is also fine if you obtain my example code and demonstrate that you can get it working on your quarto blog (e.g., produce a link that runs the experiment.)\nBrainstorm a manipulation that you think might change the size of the Stroop effect. For example, would making the color words bigger make it even harder to ignore the words, and therefore produce a larger Stroop effect (compared to trials where the words were much smaller and harder to read, and therefore easier to ignore)?\nProduce a version of the Stroop experiment that deploys your manipulation. In the example above, you would need to have some trials where the word appears in a small font and others where it appears in a large font.\n\n\nAdvanced\nWe will cover data analysis next week, but if you want to find out whether your manipulation worked, then you will need to analyze your data in each condition. See if you can find a way to do this. Did your manipulation succesfully cause a change in the size of the Stroop effect?"
+    "text": "Assignment\n\nObtain the sample data from this tutorial (you can get them from the github repository for this blog). Show that you can conduct the analysis in your blog post.\nCreate pilot data from your own Stroop experiment by running yourself as a participant a few times.\nAnalyse the data in R by modifying the example scripts as necessary."
   },
   {
-    "objectID": "blog/2_Basic_web/index.html",
-    "href": "blog/2_Basic_web/index.html",
-    "title": "Week 2: Really Basic HTML and Javascript",
+    "objectID": "blog/5_stroop_data/index.html#example-code",
+    "href": "blog/5_stroop_data/index.html#example-code",
+    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "section": "Example code",
+    "text": "Example code\nThe following example code shows some minimal examples for analyzing RT and accuracy data from a basic Stroop experiment.\n\nLoading libraries and importing data\n\n# install from the Packages tab, or run the below in the console once.\n#install.packages('tidyverse')\n#install.packages('rio')\n\n# load libraries\nlibrary(tidyverse)\nlibrary(rio)\n\n# get data file names\nfile_names &lt;- list.files(\"data\",full.names = TRUE)\n\n# initialize data frame to hold individual subject data\nall_data &lt;- tibble()\n\n# loop through each file and import\nfor(i in 1:length(file_names)) {\n  \n  # import a single data file to a temporary data frame\n  temp_df &lt;- rio::import(file_names[i]) %&gt;%\n    mutate(subject = i)\n  \n  # append the single subject data to larger data frame\n  all_data &lt;- rbind(all_data,temp_df)\n  \n}\n\n\n\nReaction time analysis\nGoal: get individual subject mean reaction times for correct trials. Create a plot\n\n# pre-process and filter rows\nfiltered_data &lt;- all_data %&gt;%\n  filter(task == \"stroop\",\n         correct == \"TRUE\") %&gt;%\n  mutate(rt = as.numeric(rt))\n\n# get individual subject means in each condition\nsubject_mean_RT &lt;- filtered_data %&gt;%\n  group_by(subject,congruency) %&gt;%\n  summarize(mean_rt = mean(rt), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_RT &lt;- subject_mean_RT %&gt;%\n  group_by(congruency) %&gt;%\n  summarize(mean_reaction_time = mean(mean_rt),\n            sem = sd(mean_rt)/sqrt(length(mean_rt))\n            )\n\n# plot\nggplot(group_mean_RT, aes(x=congruency,y=mean_reaction_time)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_reaction_time-sem,\n                    ymax=mean_reaction_time+sem),\n                width=.2) +\n  ylab(\"Mean Reaction Time (ms)\") +\n  xlab(\"Congruency\")+\n  coord_cartesian(ylim=c(400,800)) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n\n\nAccuracy analysis\nGoal: get individual subject proportion correct. Create a plot\n\n# pre-process and filter rows\nfiltered_data_pc &lt;- all_data %&gt;%\n  filter(task == \"stroop\")\n\n# get individual subject proportion correct values\nsubject_pc &lt;- filtered_data_pc %&gt;%\n  group_by(subject,congruency) %&gt;%\n  summarize(proportion_correct = mean(correct), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_pc &lt;- subject_pc %&gt;%\n  group_by(congruency) %&gt;%\n  summarize(mean_proportion_correct = mean(proportion_correct),\n            sem = sd(proportion_correct)/sqrt(length(proportion_correct))\n            )\n\n# plot\nggplot(group_mean_pc, aes(x=congruency,y=mean_proportion_correct)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_proportion_correct-sem,\n                    ymax=mean_proportion_correct+sem),\n                width=.2) +\n  ylab(\"Mean Proportion Correct\") +\n  xlab(\"Congruency\")+\n  coord_cartesian(ylim=c(0.5,1)) +\n  theme_classic()"
+  },
+  {
+    "objectID": "blog/3_jspsych_tutorial/index.html",
+    "href": "blog/3_jspsych_tutorial/index.html",
+    "title": "Week 3: JsPsych and the simple reaction time tutorial",
     "section": "",
-    "text": "Pre-requisites:\nThis post assumes that you have a quarto blog up and running (see last post)."
+    "text": "Pre-requisites:\nHave followed along from the previous posts"
   },
   {
-    "objectID": "blog/2_Basic_web/index.html#overview",
-    "href": "blog/2_Basic_web/index.html#overview",
-    "title": "Week 2: Really Basic HTML and Javascript",
-    "section": "Overview",
-    "text": "Overview\nThe purpose of this week is to make sure we understand some very basic web programming concepts before attempting to code cognitive psych experiments with jsPsych.\nIf you already have experience coding for the web, that’s great, and this may be a review for you."
-  },
-  {
-    "objectID": "blog/2_Basic_web/index.html#software",
-    "href": "blog/2_Basic_web/index.html#software",
-    "title": "Week 2: Really Basic HTML and Javascript",
-    "section": "Software",
-    "text": "Software\nYou should already have R Studio and R installed, as well as Github desktop. We will be using these tools throughout the course.\nTo program for the web you really only need a text editor (to write the code), and web-browser (to check that it works). We will use the text editor inside R studio (it’s totally fine if you want to use a different one). My preferred web-browser for debugging code is firefox. Google chrome is fine too. Safari for mac is OK."
-  },
-  {
-    "objectID": "blog/2_Basic_web/index.html#concepts-to-cover",
-    "href": "blog/2_Basic_web/index.html#concepts-to-cover",
-    "title": "Week 2: Really Basic HTML and Javascript",
+    "objectID": "blog/3_jspsych_tutorial/index.html#concepts-to-cover",
+    "href": "blog/3_jspsych_tutorial/index.html#concepts-to-cover",
+    "title": "Week 3: JsPsych and the simple reaction time tutorial",
     "section": "Concepts to cover",
-    "text": "Concepts to cover\n\nI’ll cover the following concepts in the screencast, and show how I am using software as I go along.\n\nWhat is HTML? What kind of file is it?\nWeb-browser as a compiler that interprets HTML code and displays it as a web page\nBasic anatomy of an HTML file\nAdding HTML elements to the body\n\nsee w3schools\n\nWhat is Javascript?\nWeb-browser as a javascript compiler that executes javascript code\nJavascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)\n\nLink to text.html"
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nWhat is JsPsych?\n\nOverview of the JsPsych documentation website\n\nGetting JsPsych on your computer\n\ndownloading the library from github\nOr, using links\n\nSimple reaction time tasks\n\nDonders and subtractive logic\nReading: https://www.crumplab.com/cognition/textbook/C7_Information_Processing.html#donders-processing-stages\n\nWalkthrough of the JsPsych simpleRT demo.\n\n\nExample of showing the code works\nLink to test.html"
   },
   {
-    "objectID": "blog/2_Basic_web/index.html#assignment",
-    "href": "blog/2_Basic_web/index.html#assignment",
-    "title": "Week 2: Really Basic HTML and Javascript",
+    "objectID": "blog/3_jspsych_tutorial/index.html#assignment",
+    "href": "blog/3_jspsych_tutorial/index.html#assignment",
+    "title": "Week 3: JsPsych and the simple reaction time tutorial",
     "section": "Assignment",
-    "text": "Assignment\nCreate your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).\nAdd your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.\n\nExample assignment ideas\nIn a couple weeks we will be making a Stroop experiment demo. Part of this experiment requires being able to present words one at a time in different colors.\nThese are some example stimuli:\n Consider how you would use basic javascript and a button to achieve the following result:\n\nEvery time you click the button a new Stroop item is displayed on the screen.\n\nWe will do this later using jsPsych, but it can be instructive to figure out how to solve problems using basic javascript and html."
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Course Blog",
-    "section": "",
-    "text": "Week 5: Analyzing data from a Stroop experiment in R\n\n\n\n\n\n\n\nPsyc 2001\n\n\nStroop\n\n\nR\n\n\n\n\nLast week we programmed a basic Stroop experiment using jspsych, and this week we take a quick look at analyzing the data using R.\n\n\n\n\n\n\nSep 27, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4: Programming a Stroop experiment in JsPsych\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nHow to program a basic Stroop experiment in JsPsych, and some considerations of various design parameters.\n\n\n\n\n\n\nSep 19, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3: JsPsych and the simple reaction time tutorial\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nWe look at accessing the JsPsych library and work through the tutorial on writing a simple reaction time tutorial in JsPsych.\n\n\n\n\n\n\nSep 11, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Matt Crump",
-    "section": "",
-    "text": "This is an example quarto about page. See the quarto documentation for more options here.\nMatt Crump is a cognitive psychologist with research interests in learning, memory, attention, skill learning, semantics, and computational modeling. He runs the computational cognition lab at Brooklyn College of CUNY."
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "Matt Crump",
-    "section": "Education",
-    "text": "Education\nPostdoc, Vanderbilt University - 2011 (Psychology)\nPh.D., McMaster University - 2007 (Psychology)\nB.Sc., University of Lethbridge - 2002 (Psychology)"
-  },
-  {
-    "objectID": "about.html#experience",
-    "href": "about.html#experience",
-    "title": "Matt Crump",
-    "section": "Experience",
-    "text": "Experience\nAssistant Professor - Brooklyn College of CUNY (2011)\nAssociate Professor - Brooklyn College of CUNY (2016)\nFull Professor - Brooklyn College of CUNY (2022)"
+    "text": "Assignment\n\nShow that you can get the JsPsych simple RT demo working and posted to your blog. You should be able to do this based on following along with the documentation and the screencast.\nGeneralize: The reading about Donder’s concept of processing stages discussed three kinds of tasks\n\n\nA basic detection task\nA Go/NO-GO task\nA choice reaction time task\n\nYour assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script.\n\nAdvanced\nIf you are looking for an advanced challenge, then attempt the following.\nA researcher may want to conduct the above 3 different versions of a reaction time task for the same participant. Produce a script that presents each task one after the other.\nAdditionally, a researcher may want to control or randomize the sequence of each task. Produce a script that randomizes task order."
   },
   {
     "objectID": "blog/1_Getting_started/index.html",
@@ -203,60 +168,130 @@
     "text": "Feel free to poke around Quarto\nThe documentation for quarto is available here:\nhttps://quarto.org\nThere is much more to quarto than making blogs, so feel free to poke around in the documentation to see what it can do."
   },
   {
-    "objectID": "blog/3_jspsych_tutorial/index.html",
-    "href": "blog/3_jspsych_tutorial/index.html",
-    "title": "Week 3: JsPsych and the simple reaction time tutorial",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Matt Crump",
     "section": "",
-    "text": "Pre-requisites:\nHave followed along from the previous posts"
+    "text": "This is an example quarto about page. See the quarto documentation for more options here.\nMatt Crump is a cognitive psychologist with research interests in learning, memory, attention, skill learning, semantics, and computational modeling. He runs the computational cognition lab at Brooklyn College of CUNY."
   },
   {
-    "objectID": "blog/3_jspsych_tutorial/index.html#concepts-to-cover",
-    "href": "blog/3_jspsych_tutorial/index.html#concepts-to-cover",
-    "title": "Week 3: JsPsych and the simple reaction time tutorial",
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "Matt Crump",
+    "section": "Education",
+    "text": "Education\nPostdoc, Vanderbilt University - 2011 (Psychology)\nPh.D., McMaster University - 2007 (Psychology)\nB.Sc., University of Lethbridge - 2002 (Psychology)"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "Matt Crump",
+    "section": "Experience",
+    "text": "Experience\nAssistant Professor - Brooklyn College of CUNY (2011)\nAssociate Professor - Brooklyn College of CUNY (2016)\nFull Professor - Brooklyn College of CUNY (2022)"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Course Blog",
+    "section": "",
+    "text": "Week 6: Picture memory\n\n\n\n\n\n\n\nPsyc 2001\n\n\nPictures\n\n\nRecognition Memory\n\n\n\n\nThis week we program a replication of a classic picture memory experiment.\n\n\n\n\n\n\nOct 4, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 5: Analyzing data from a Stroop experiment in R\n\n\n\n\n\n\n\nPsyc 2001\n\n\nStroop\n\n\nR\n\n\n\n\nLast week we programmed a basic Stroop experiment using jspsych, and this week we take a quick look at analyzing the data using R.\n\n\n\n\n\n\nSep 27, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 4: Programming a Stroop experiment in JsPsych\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nHow to program a basic Stroop experiment in JsPsych, and some considerations of various design parameters.\n\n\n\n\n\n\nSep 19, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 3: JsPsych and the simple reaction time tutorial\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nWe look at accessing the JsPsych library and work through the tutorial on writing a simple reaction time tutorial in JsPsych.\n\n\n\n\n\n\nSep 11, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 2: Really Basic HTML and Javascript\n\n\n\n\n\n\n\nPsyc 2001\n\n\njspsych\n\n\n\n\nBasic web coding concepts for complete beginners, and some suggestions for software usage in this course.\n\n\n\n\n\n\nSep 5, 2023\n\n\nMatt Crump\n\n\n\n\n\n\n\n\n\n\n\n\n\nWeek 1: Installing software and getting your Quarto Blog working\n\n\n\n\n\nInstructions for getting started with Psyc 2001 in Fall 2023\n\n\n\n\n\n\nAug 31, 2023\n\n\nMatt Crump\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html",
+    "href": "blog/2_Basic_web/index.html",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "",
+    "text": "Pre-requisites:\nThis post assumes that you have a quarto blog up and running (see last post)."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#overview",
+    "href": "blog/2_Basic_web/index.html#overview",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "Overview",
+    "text": "Overview\nThe purpose of this week is to make sure we understand some very basic web programming concepts before attempting to code cognitive psych experiments with jsPsych.\nIf you already have experience coding for the web, that’s great, and this may be a review for you."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#software",
+    "href": "blog/2_Basic_web/index.html#software",
+    "title": "Week 2: Really Basic HTML and Javascript",
+    "section": "Software",
+    "text": "Software\nYou should already have R Studio and R installed, as well as Github desktop. We will be using these tools throughout the course.\nTo program for the web you really only need a text editor (to write the code), and web-browser (to check that it works). We will use the text editor inside R studio (it’s totally fine if you want to use a different one). My preferred web-browser for debugging code is firefox. Google chrome is fine too. Safari for mac is OK."
+  },
+  {
+    "objectID": "blog/2_Basic_web/index.html#concepts-to-cover",
+    "href": "blog/2_Basic_web/index.html#concepts-to-cover",
+    "title": "Week 2: Really Basic HTML and Javascript",
     "section": "Concepts to cover",
-    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nWhat is JsPsych?\n\nOverview of the JsPsych documentation website\n\nGetting JsPsych on your computer\n\ndownloading the library from github\nOr, using links\n\nSimple reaction time tasks\n\nDonders and subtractive logic\nReading: https://www.crumplab.com/cognition/textbook/C7_Information_Processing.html#donders-processing-stages\n\nWalkthrough of the JsPsych simpleRT demo.\n\n\nExample of showing the code works\nLink to test.html"
+    "text": "Concepts to cover\n\nI’ll cover the following concepts in the screencast, and show how I am using software as I go along.\n\nWhat is HTML? What kind of file is it?\nWeb-browser as a compiler that interprets HTML code and displays it as a web page\nBasic anatomy of an HTML file\nAdding HTML elements to the body\n\nsee w3schools\n\nWhat is Javascript?\nWeb-browser as a javascript compiler that executes javascript code\nJavascript control over HTML elements (changing webpages with javascript, recording webpage interactions with javascript)\n\nLink to text.html"
   },
   {
-    "objectID": "blog/3_jspsych_tutorial/index.html#assignment",
-    "href": "blog/3_jspsych_tutorial/index.html#assignment",
-    "title": "Week 3: JsPsych and the simple reaction time tutorial",
+    "objectID": "blog/2_Basic_web/index.html#assignment",
+    "href": "blog/2_Basic_web/index.html#assignment",
+    "title": "Week 2: Really Basic HTML and Javascript",
     "section": "Assignment",
-    "text": "Assignment\n\nShow that you can get the JsPsych simple RT demo working and posted to your blog. You should be able to do this based on following along with the documentation and the screencast.\nGeneralize: The reading about Donder’s concept of processing stages discussed three kinds of tasks\n\n\nA basic detection task\nA Go/NO-GO task\nA choice reaction time task\n\nYour assignment is to attempt to produce scripts for each of these tasks by modifying the example simple RT demo script.\n\nAdvanced\nIf you are looking for an advanced challenge, then attempt the following.\nA researcher may want to conduct the above 3 different versions of a reaction time task for the same participant. Produce a script that presents each task one after the other.\nAdditionally, a researcher may want to control or randomize the sequence of each task. Produce a script that randomizes task order."
+    "text": "Assignment\nCreate your own basic html file. Explore the process of adding different kinds of html elements to it. See if you can program some kind of javascript interaction, even if it is super simple (e.g., like pressing a button changes something on the website).\nAdd your html file to your blog post so that it is viewable from your blog, and so that the code is viewable from github.\n\nExample assignment ideas\nIn a couple weeks we will be making a Stroop experiment demo. Part of this experiment requires being able to present words one at a time in different colors.\nThese are some example stimuli:\n Consider how you would use basic javascript and a button to achieve the following result:\n\nEvery time you click the button a new Stroop item is displayed on the screen.\n\nWe will do this later using jsPsych, but it can be instructive to figure out how to solve problems using basic javascript and html."
   },
   {
-    "objectID": "blog/5_stroop_data/index.html",
-    "href": "blog/5_stroop_data/index.html",
-    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "objectID": "blog/4_stroop/index.html",
+    "href": "blog/4_stroop/index.html",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
     "section": "",
     "text": "Pre-requisites:\nHave followed along from the previous posts."
   },
   {
-    "objectID": "blog/5_stroop_data/index.html#screencast",
-    "href": "blog/5_stroop_data/index.html#screencast",
-    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "objectID": "blog/4_stroop/index.html#part-1-basic-stroop",
+    "href": "blog/4_stroop/index.html#part-1-basic-stroop",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "Part 1: Basic Stroop",
+    "text": "Part 1: Basic Stroop"
+  },
+  {
+    "objectID": "blog/4_stroop/index.html#part-2-using-a-script-to-generate-a-stimulus-array",
+    "href": "blog/4_stroop/index.html#part-2-using-a-script-to-generate-a-stimulus-array",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "Part 2: Using a script to generate a stimulus array",
+    "text": "Part 2: Using a script to generate a stimulus array"
+  },
+  {
+    "objectID": "blog/4_stroop/index.html#concepts-to-cover",
+    "href": "blog/4_stroop/index.html#concepts-to-cover",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "Concepts to cover",
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nWhat is a Stroop Experiment?\n\nReadings:\nLogan, G. D., & Zbrodoff, N. J. (1998). Stroop-type interference: Congruity effects in color naming with typewritten responses. Journal of Experimental Psychology: Human Perception and Performance, 24(3), 978–992. https://doi.org/10.1037/0096-1523.24.3.978\nMacLeod, C. M. (1991). Half a century of research on the Stroop effect: An integrative review. Psychological Bulletin, 109(2), 163. https://doi.org/10.1037/0033-2909.109.2.163\n\nProgramming a basic Stroop experiment in JsPsych from scratch\nAdditional considerations\n\nElements around the main experiment\n\nwelcoming people, explaining the task, making sure they understand, giving feedback, debriefing them.\n\nDesign considerations:\n\ndifferent response modalities (button press vs. typing vs. voice key)\nProportion manipulations\nsequence manipulations\n\n\n\n\nLinks to example code\nRemember, you can view the source code from github repository for this website.\nBasic stroop example\nSecond Stroop example"
+  },
+  {
+    "objectID": "blog/4_stroop/index.html#assignment",
+    "href": "blog/4_stroop/index.html#assignment",
+    "title": "Week 4: Programming a Stroop experiment in JsPsych",
+    "section": "Assignment",
+    "text": "Assignment\n\nDemonstrate that you can get the Stroop tutorial example working on your Quarto blog. Feel free to attempt writing your own version of a Stroop experiment from scratch, this is the best way to learn. For this course, and at this stage, it is also fine if you obtain my example code and demonstrate that you can get it working on your quarto blog (e.g., produce a link that runs the experiment.)\nBrainstorm a manipulation that you think might change the size of the Stroop effect. For example, would making the color words bigger make it even harder to ignore the words, and therefore produce a larger Stroop effect (compared to trials where the words were much smaller and harder to read, and therefore easier to ignore)?\nProduce a version of the Stroop experiment that deploys your manipulation. In the example above, you would need to have some trials where the word appears in a small font and others where it appears in a large font.\n\n\nAdvanced\nWe will cover data analysis next week, but if you want to find out whether your manipulation worked, then you will need to analyze your data in each condition. See if you can find a way to do this. Did your manipulation succesfully cause a change in the size of the Stroop effect?"
+  },
+  {
+    "objectID": "blog/6_picture_memory/index.html",
+    "href": "blog/6_picture_memory/index.html",
+    "title": "Week 6: Picture memory",
+    "section": "",
+    "text": "Pre-requisites:\nHave followed along from the previous posts."
+  },
+  {
+    "objectID": "blog/6_picture_memory/index.html#screencast",
+    "href": "blog/6_picture_memory/index.html#screencast",
+    "title": "Week 6: Picture memory",
     "section": "Screencast",
     "text": "Screencast"
   },
   {
-    "objectID": "blog/5_stroop_data/index.html#concepts-to-cover",
-    "href": "blog/5_stroop_data/index.html#concepts-to-cover",
-    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "objectID": "blog/6_picture_memory/index.html#concepts-to-cover",
+    "href": "blog/6_picture_memory/index.html#concepts-to-cover",
+    "title": "Week 6: Picture memory",
     "section": "Concepts to cover",
-    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\npiloting an experiment\nsaving data\n\ncopy from the screen\nsave to csv\n\nquick R review\n\nobtaining necessary packages\nR code chunks\n\nScripting the analysis\n\nload the data into T\ntidyverse pipeline to get individual subject means in all conditions\ngroup means\nplotting the data using ggplot2"
+    "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nPotter, M. C., & Levy, E. I. (1969). Recognition memory for a rapid sequence of pictures. Journal of Experimental Psychology, 81(1), 10.\nProgramming a version of the experiment in jsPsych"
   },
   {
-    "objectID": "blog/5_stroop_data/index.html#assignment",
-    "href": "blog/5_stroop_data/index.html#assignment",
-    "title": "Week 5: Analyzing data from a Stroop experiment in R",
+    "objectID": "blog/6_picture_memory/index.html#assignment",
+    "href": "blog/6_picture_memory/index.html#assignment",
+    "title": "Week 6: Picture memory",
     "section": "Assignment",
-    "text": "Assignment\n\nObtain the sample data from this tutorial (you can get them from the github repository for this blog). Show that you can conduct the analysis in your blog post.\nCreate pilot data from your own Stroop experiment by running yourself as a participant a few times.\nAnalyse the data in R by modifying the example scripts as necessary."
-  },
-  {
-    "objectID": "blog/5_stroop_data/index.html#example-code",
-    "href": "blog/5_stroop_data/index.html#example-code",
-    "title": "Week 5: Analyzing data from a Stroop experiment in R",
-    "section": "Example code",
-    "text": "Example code\nThe following example code shows some minimal examples for analyzing RT and accuracy data from a basic Stroop experiment.\n\nLoading libraries and importing data\n\n# install from the Packages tab, or run the below in the console once.\n#install.packages('tidyverse')\n#install.packages('rio')\n\n# load libraries\nlibrary(tidyverse)\nlibrary(rio)\n\n# get data file names\nfile_names &lt;- list.files(\"data\",full.names = TRUE)\n\n# initialize data frame to hold individual subject data\nall_data &lt;- tibble()\n\n# loop through each file and import\nfor(i in 1:length(file_names)) {\n  \n  # import a single data file to a temporary data frame\n  temp_df &lt;- rio::import(file_names[i]) %&gt;%\n    mutate(subject = i)\n  \n  # append the single subject data to larger data frame\n  all_data &lt;- rbind(all_data,temp_df)\n  \n}\n\n\n\nReaction time analysis\nGoal: get individual subject mean reaction times for correct trials. Create a plot\n\n# pre-process and filter rows\nfiltered_data &lt;- all_data %&gt;%\n  filter(task == \"stroop\",\n         correct == \"TRUE\") %&gt;%\n  mutate(rt = as.numeric(rt))\n\n# get individual subject means in each condition\nsubject_mean_RT &lt;- filtered_data %&gt;%\n  group_by(subject,congruency) %&gt;%\n  summarize(mean_rt = mean(rt), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_RT &lt;- subject_mean_RT %&gt;%\n  group_by(congruency) %&gt;%\n  summarize(mean_reaction_time = mean(mean_rt),\n            sem = sd(mean_rt)/sqrt(length(mean_rt))\n            )\n\n# plot\nggplot(group_mean_RT, aes(x=congruency,y=mean_reaction_time)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_reaction_time-sem,\n                    ymax=mean_reaction_time+sem),\n                width=.2) +\n  ylab(\"Mean Reaction Time (ms)\") +\n  xlab(\"Congruency\")+\n  coord_cartesian(ylim=c(400,800)) +\n  theme_classic()\n\n\n\n\n\n\n\n\n\n\n\n\nAccuracy analysis\nGoal: get individual subject proportion correct. Create a plot\n\n# pre-process and filter rows\nfiltered_data_pc &lt;- all_data %&gt;%\n  filter(task == \"stroop\")\n\n# get individual subject proportion correct values\nsubject_pc &lt;- filtered_data_pc %&gt;%\n  group_by(subject,congruency) %&gt;%\n  summarize(proportion_correct = mean(correct), .groups = \"drop\")\n\n# get group means in each condition\ngroup_mean_pc &lt;- subject_pc %&gt;%\n  group_by(congruency) %&gt;%\n  summarize(mean_proportion_correct = mean(proportion_correct),\n            sem = sd(proportion_correct)/sqrt(length(proportion_correct))\n            )\n\n# plot\nggplot(group_mean_pc, aes(x=congruency,y=mean_proportion_correct)) +\n  geom_bar(stat=\"identity\") +\n  geom_errorbar(aes(ymin=mean_proportion_correct-sem,\n                    ymax=mean_proportion_correct+sem),\n                width=.2) +\n  ylab(\"Mean Proportion Correct\") +\n  xlab(\"Congruency\")+\n  coord_cartesian(ylim=c(0.5,1)) +\n  theme_classic()"
+    "text": "Assignment\n\nObtain the sample code from the tutorial and images. Demonstrate that you can get the experiment running on your blog.\nAttempt to program a different manipulation that you think would influence recognition memory for pictures."
   },
   {
     "objectID": "resources.html",
@@ -308,10 +343,10 @@
     "text": "datapipe\nThis is a tool for serving JsPsych experiments from Github Pages and having data routed to an OSF repository. This allows for a “server-less” way to collect data.\nhttps://pipe.jspsych.org"
   },
   {
-    "objectID": "blog/5_stroop_data/index.html#r-resources",
-    "href": "blog/5_stroop_data/index.html#r-resources",
-    "title": "Week 5: Analyzing data from a Stroop experiment in R",
-    "section": "R Resources",
-    "text": "R Resources\nWe did not spend much time introducing R. Hopefully the screencast is enough to get you started with the example scripts below.\nHere are some additional resources for learning R.\n\nTutorials from an R statistics course\nBasic coding reference\nHuge list of R resources"
+    "objectID": "blog/6_picture_memory/index.html#demo-experiment",
+    "href": "blog/6_picture_memory/index.html#demo-experiment",
+    "title": "Week 6: Picture memory",
+    "section": "Demo Experiment",
+    "text": "Demo Experiment\n(link to experiment)[picture.html]"
   }
 ]

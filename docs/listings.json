@@ -2,6 +2,7 @@
   {
     "listing": "/blog.html",
     "items": [
+      "/blog/6_picture_memory/index.html",
       "/blog/5_stroop_data/index.html",
       "/blog/4_stroop/index.html",
       "/blog/3_jspsych_tutorial/index.html",

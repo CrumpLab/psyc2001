@@ -10,7 +10,52 @@
 <atom:link href="https://crumplab.com/psyc2001/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.386</generator>
-<lastBuildDate>Wed, 27 Sep 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 04 Oct 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Week 6: Picture memory</title>
+  <dc:creator>Matt Crump</dc:creator>
+  <link>https://crumplab.com/psyc2001/blog/6_picture_memory/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Pre-requisites:</p>
+<p>Have followed along from the previous posts.</p>
+<section id="screencast" class="level2">
+<h2 class="anchored" data-anchor-id="screencast">Screencast</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/-kCpvpyBE0c" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+<section id="concepts-to-cover" class="level2">
+<h2 class="anchored" data-anchor-id="concepts-to-cover">Concepts to cover</h2>
+<p>I’ll cover the following concepts in the screencast and show how I am using software as I go along.</p>
+<ul>
+<li><p>Potter, M. C., &amp; Levy, E. I. (1969). Recognition memory for a rapid sequence of pictures. Journal of Experimental Psychology, 81(1), 10.</p></li>
+<li><p>Programming a version of the experiment in jsPsych</p></li>
+</ul>
+</section>
+<section id="demo-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="demo-experiment">Demo Experiment</h2>
+<p>(link to experiment)[picture.html]</p>
+</section>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<ol type="1">
+<li><p>Obtain the sample code from the tutorial and images. Demonstrate that you can get the experiment running on your blog.</p></li>
+<li><p>Attempt to program a different manipulation that you think would influence recognition memory for pictures.</p></li>
+</ol>
+
+
+</section>
+
+ ]]></description>
+  <category>Psyc 2001</category>
+  <category>Pictures</category>
+  <category>Recognition Memory</category>
+  <guid>https://crumplab.com/psyc2001/blog/6_picture_memory/</guid>
+  <pubDate>Wed, 04 Oct 2023 04:00:00 GMT</pubDate>
+  <media:content url="https://crumplab.com/psyc2001/blog/6_picture_memory/week_6.jpeg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Week 5: Analyzing data from a Stroop experiment in R</title>
   <dc:creator>Matt Crump</dc:creator>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My experiment</title>
+
+
+    <script src="https://unpkg.com/jspsych@7.3.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.2"></script>
+    <link href="https://unpkg.com/jspsych@7.3.3/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <script src="stimuli.js"></script>
+
+    <!--
+    <script src="jspsych/dist/jspsych.js"></script>
+    <script src="jspsych/dist/plugin-html-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-image-keyboard-response.js"></script>
+    <script src="jspsych/dist/plugin-preload.js"></script>
+
+    <link href="jspsych/dist/jspsych.css" rel="stylesheet" type="text/css" />
+    -->
+
+  </head>
+  <body></body>
+  <script>
+
+  var jsPsych = initJsPsych({
+    on_finish: function() {
+      jsPsych.data.displayData();
+    }
+  });
+
+  var timeline = [];
+
+  var welcome = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "Welcome to the experiment. Press any key to begin."
+  };
+
+  var encoding_instructions = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <p>In this task, you will be shown a series of pictures</p>
+    <p>The pictures will be presented quickly, and they will remain on the screen for different durations </p>
+    <p>Pay attention to the pictures as best as you can.</p>
+    <p>After the encoding phase you will be given a recognition test for the pictures that were presented.</p>
+    <p>Press any key to begin.</p>
+    `,
+    post_trial_gap: 2000
+  };
+
+  // Set goals
+  // get some pictures
+  // figure out how to present them using jspsych
+
+  var encoding_stimuli = [];
+
+  all_pictures = jsPsych.randomization.shuffle(all_pictures);
+
+  //var durations = [125,250,500,1000,2000];
+
+  var durations = [Array(10).fill(125),Array(10).fill(250),Array(10).fill(500),Array(10).fill(1000),Array(10).fill(2000)].flat();
+
+  for (i=0; i < 50; i++){
+
+      //evaluate stimulus duration
+
+      encoding_stimuli.push({
+        stimulus: `<img src='images/${all_pictures[i]}'>`,
+        phase: "encoding",
+        duration: durations[i]
+      });
+
+  }
+
+  var fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: '<div style="font-size:60px;">+</div>',
+    choices: "NO_KEYS",
+    trial_duration: 1000,
+    data: {
+      task: 'fixation'
+    }
+  };
+
+  var display_picture = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    choices: 'NO_KEYS',
+    trial_duration: jsPsych.timelineVariable('duration'),
+    response_ends_trial: false,
+    stimulus_duration: jsPsych.timelineVariable('duration'),
+    data: {
+      phase: jsPsych.timelineVariable('phase'),
+      duration: jsPsych.timelineVariable('duration')
+    },
+    post_trial_gap: 500
+  };
+
+  var encoding_procedure = {
+    timeline: [display_picture],
+    timeline_variables: encoding_stimuli,
+    randomize_order: true,
+    repetitions: 1
+  };
+
+
+  var recognition_instructions = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: `
+    <p>In this phase, you will be shown pictures one at a time</p>
+    <p>For each picture you will judge whether you saw the picture before. </p>
+
+    <p> Press 'o' if the picture is OLD, and you saw it before </p>
+
+    <p> Press 'n' if the picture is NEW, and you did not see it before. </p>
+
+    <p>Press any key to begin.</p>
+    `,
+    post_trial_gap: 2000
+  };
+
+  // make list of stimuli for recognition test
+
+    var recognition_stimuli = [];
+
+    for (i=0; i < 50; i++){
+
+      //push old stimuli
+      recognition_stimuli.push({
+        stimulus: encoding_stimuli[i].stimulus,
+        phase: "test",
+        type: "old",
+        correct_response: 'o',
+        duration: encoding_stimuli[i].duration
+      });
+
+       //push new stimuli
+      recognition_stimuli.push({
+        stimulus: `<img src='images/${all_pictures[50+i]}'>`,
+        phase: "test",
+        type: "new",
+        correct_response: 'n',
+        duration: "NA"
+      });
+  }
+
+  var display_picture_recognition = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: jsPsych.timelineVariable('stimulus'),
+    choices: ['o','n'],
+    response_ends_trial: true,
+    data: {
+      phase: jsPsych.timelineVariable('phase'),
+      duration: jsPsych.timelineVariable('duration')
+    },
+    post_trial_gap: 500
+  };
+
+  var recognition_procedure = {
+    timeline: [display_picture_recognition],
+    timeline_variables: recognition_stimuli,
+    randomize_order: true,
+    repetitions: 1
+  };
+
+
+  timeline.push(welcome);
+  timeline.push(encoding_instructions);
+  timeline.push(encoding_procedure);
+  timeline.push(recognition_instructions);
+  timeline.push(recognition_procedure);
+
+  jsPsych.run(timeline);
+
+
+  </script>
+</html>
