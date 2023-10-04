@@ -287,6 +287,13 @@
     "text": "Concepts to cover\nI’ll cover the following concepts in the screencast and show how I am using software as I go along.\n\nPotter, M. C., & Levy, E. I. (1969). Recognition memory for a rapid sequence of pictures. Journal of Experimental Psychology, 81(1), 10.\nProgramming a version of the experiment in jsPsych"
   },
   {
+    "objectID": "blog/6_picture_memory/index.html#demo-experiment",
+    "href": "blog/6_picture_memory/index.html#demo-experiment",
+    "title": "Week 6: Picture memory",
+    "section": "Demo Experiment",
+    "text": "Demo Experiment\n(link to experiment)[picture.html]"
+  },
+  {
     "objectID": "blog/6_picture_memory/index.html#assignment",
     "href": "blog/6_picture_memory/index.html#assignment",
     "title": "Week 6: Picture memory",
@@ -341,12 +348,5 @@
     "title": "Course Resources",
     "section": "datapipe",
     "text": "datapipe\nThis is a tool for serving JsPsych experiments from Github Pages and having data routed to an OSF repository. This allows for a “server-less” way to collect data.\nhttps://pipe.jspsych.org"
-  },
-  {
-    "objectID": "blog/6_picture_memory/index.html#demo-experiment",
-    "href": "blog/6_picture_memory/index.html#demo-experiment",
-    "title": "Week 6: Picture memory",
-    "section": "Demo Experiment",
-    "text": "Demo Experiment\n(link to experiment)[picture.html]"
   }
 ]

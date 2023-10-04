@@ -16,6 +16,8 @@ website:
   title: "psyc2001"
   repo-url: https://github.com/CrumpLab/psyc2001
   repo-actions: [edit, issue]
+  open-graph: true
+  twitter-card: true
   page-footer:
     left: "This page is built with [Quarto](https://quarto.org/)."
     right:
