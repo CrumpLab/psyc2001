@@ -37,7 +37,7 @@ I'll cover the following concepts in the screencast and show how I am using soft
 
 ## Demo Experiment
 
-(link to experiment)[picture.html]
+[link to experiment](picture.html)
   
 ## Assignment
 

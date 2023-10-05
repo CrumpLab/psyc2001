@@ -36,7 +36,7 @@
 </section>
 <section id="demo-experiment" class="level2">
 <h2 class="anchored" data-anchor-id="demo-experiment">Demo Experiment</h2>
-<p>(link to experiment)[picture.html]</p>
+<p><a href="picture.html">link to experiment</a></p>
 </section>
 <section id="assignment" class="level2">
 <h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
