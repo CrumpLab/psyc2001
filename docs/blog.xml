@@ -10,7 +10,43 @@
 <atom:link href="https://crumplab.com/psyc2001/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.386</generator>
-<lastBuildDate>Wed, 04 Oct 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 13 Oct 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Week 7: Literature Review and using Zotero</title>
+  <dc:creator>Matt Crump</dc:creator>
+  <link>https://crumplab.com/psyc2001/blog/7_lit_review/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>This week does not involve a JsPsych assignment. Up to now we have achieved some familiarity with JsPsych by programming three demo experiments. Moving forward, the goal is to create some “real” experiments that the lab may run in the future.</p>
+<p>The theme for this semester is recognition memory for pictures. In order to figure out what kind of experiments we might create, it is important to first learn more about the existing literature. So, the assignment for this week is to read the following review paper:</p>
+<p>Levie, W. H., &amp; Hathaway, S. N. (1988). Picture recognition memory: A review of research and theory. Journal of Visual Verbal Languaging, 8(1), 6–45.</p>
+<p>In addition, your task this week involves a few more items.</p>
+<ol type="1">
+<li>Get a free zotero account <a href="https://www.zotero.org" class="uri">https://www.zotero.org</a></li>
+<li>Email me your zotero username, and I will add you to the group library, which contains the above review paper and several more papers on picture memory</li>
+<li>Download and install zotero on your computer, and log in with your username. Once I add you to the group, when you sync your account, you should be able to see all of the articles.</li>
+<li>Make a new blog post and take notes about the review paper.</li>
+<li>The review paper lists many primary research papers on picture memory. Pick at least one primary research article (from the review, or from the zotero library), and read and take notes on that one as well.</li>
+</ol>
+<section id="zotero" class="level2">
+<h2 class="anchored" data-anchor-id="zotero">Zotero</h2>
+<p>I put this information together for another class, it shows basic usage of zotero:</p>
+<p><a href="https://www.crumplab.com/cognition/articles/course_docs/resources.html#zotero" class="uri">https://www.crumplab.com/cognition/articles/course_docs/resources.html#zotero</a></p>
+
+
+</section>
+
+ ]]></description>
+  <category>Psyc 2001</category>
+  <category>Pictures</category>
+  <category>Recognition Memory</category>
+  <guid>https://crumplab.com/psyc2001/blog/7_lit_review/</guid>
+  <pubDate>Fri, 13 Oct 2023 04:00:00 GMT</pubDate>
+  <media:content url="https://crumplab.com/psyc2001/blog/7_lit_review/week7.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Week 6: Picture memory</title>
   <dc:creator>Matt Crump</dc:creator>

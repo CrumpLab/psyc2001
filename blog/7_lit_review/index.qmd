@@ -1,0 +1,46 @@
+---
+title: "Week 7: Literature Review and using Zotero"
+description: "A literature review assignment and some tips on using Zotero"
+author: "Matt Crump"
+date: 10-13-23
+date-modified: last-modified
+image: week7.jpg
+categories:
+  - Psyc 2001
+  - Pictures
+  - Recognition Memory
+resources: 
+  - images
+  - stimuli.js
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+This week does not involve a JsPsych assignment. Up to now we have achieved some familiarity with JsPsych by programming three demo experiments. Moving forward, the goal is to create some "real" experiments that the lab may run in the future. 
+
+The theme for this semester is recognition memory for pictures. In order to figure out what kind of experiments we might create, it is important to first learn more about the existing literature. So, the assignment for this week is to read the following review paper:
+
+Levie, W. H., & Hathaway, S. N. (1988). Picture recognition memory: A review of research and theory. Journal of Visual Verbal Languaging, 8(1), 6–45. 
+
+In addition, your task this week involves a few more items. 
+
+1. Get a free zotero account <https://www.zotero.org>
+2. Email me your zotero username, and I will add you to the group library, which contains the above review paper and several more papers on picture memory
+3. Download and install zotero on your computer, and log in with your username. Once I add you to the group, when you sync your account, you should be able to see all of the articles.
+4. Make a new blog post and take notes about the review paper.
+5. The review paper lists many primary research papers on picture memory. Pick at least one primary research article (from the review, or from the zotero library), and read and take notes on that one as well.
+
+
+## Zotero
+
+I put this information together for another class, it shows basic usage of zotero:
+
+<https://www.crumplab.com/cognition/articles/course_docs/resources.html#zotero>
+
+
+
+
+
+
