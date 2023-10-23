@@ -10,7 +10,37 @@
 <atom:link href="https://crumplab.com/psyc2001/blog.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.4.386</generator>
-<lastBuildDate>Fri, 13 Oct 2023 04:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 23 Oct 2023 04:00:00 GMT</lastBuildDate>
+<item>
+  <title>Week 8: Recognition memory for degraded pictures</title>
+  <dc:creator>Matt Crump</dc:creator>
+  <link>https://crumplab.com/psyc2001/blog/8_noisy_pictures/</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Throughout the rest of the semester we will be developing experiments around the theme of recognition memory for pictures.</p>
+<p>This week there are two goals.</p>
+<ol type="1">
+<li><p>I will be programming a new experiment to measure how recognition memory for pictures varies as visual noise is added to the pictures. I will be sharing my code as we go. After I am finished I will share a link to the experiment with everyone and ask you to attempt the experiment. We will then look at the pilot data and discuss the experimental design.</p></li>
+<li><p>In addition, this week the main assignment is to do some additional reading on the topic of recognition memory for degraded pictures.</p></li>
+</ol>
+<p>You can choose to read and take notes on one of these papers, or you can do a literature search to see if you can find any additional papers that manipulate picture quality (by adding noise, changing size, blurring, etc.). If you do a literature search then take notes on the new papers that you found.</p>
+<p>Meng, M., &amp; Potter, M. C. (2008). Detecting and remembering pictures with and without visual noise. Journal of Vision, 8(9), 7–7. https://doi.org/10.1167/8.9.7</p>
+<p>Searston, R. A., Thompson, M. B., Vokey, J. R., French, L. A., &amp; Tangen, J. M. (2019). How low can you go? Detecting style in extremely low resolution images. Journal of Experimental Psychology: Human Perception and Performance, 45(5), 573. https://doi.org/10.1037/xhp0000628</p>
+<p>Wolfe, J. M., &amp; Kuzmova, Y. I. (2011). How many pixels make a memory? Picture memory for small pictures. Psychonomic Bulletin &amp; Review, 18(3), 469–475. https://doi.org/10.3758/s13423-011-0075-z</p>
+
+
+
+ ]]></description>
+  <category>Psyc 2001</category>
+  <category>Pictures</category>
+  <category>Recognition Memory</category>
+  <guid>https://crumplab.com/psyc2001/blog/8_noisy_pictures/</guid>
+  <pubDate>Mon, 23 Oct 2023 04:00:00 GMT</pubDate>
+  <media:content url="https://crumplab.com/psyc2001/blog/8_noisy_pictures/week8.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Week 7: Literature Review and using Zotero</title>
   <dc:creator>Matt Crump</dc:creator>
