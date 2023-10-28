@@ -39,10 +39,135 @@
 </ol>
 <p>Here is an example approach that solves some of the problem, but not all of them.</p>
 <p>Let’s say we have 100 pictures, represented here by the numbers 1 to 100</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1">all_pictures <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span></span></code></pre></div>
+</div>
 <p>I will use R to duplicate the set of numbers, and then randomly shuffle the order. This process ensures that each item (1 to 100) is presented twice in a random order. As a result, there would be 100 new trials (the first time you see a particular number), and 100 old trials (the second time you a particular number).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">trial_sequence <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sample</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">100</span>))</span></code></pre></div>
+</div>
 <p>However, simply shuffling the values randomly produces some other issues. The code chunk below analyzes the above 200 trial sequence to determine whether a particular trial is a new or old item. If the item is old, the lag between presentations is also computed.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>()</span>
+<span id="cb3-2"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span>(i <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">200</span>){</span>
+<span id="cb3-3">  num_positions <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">which</span>(trial_sequence <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%in%</span> trial_sequence[i])</span>
+<span id="cb3-4">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(i <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> num_positions[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]) {</span>
+<span id="cb3-5">    type <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"new"</span></span>
+<span id="cb3-6">    lag <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA</span></span>
+<span id="cb3-7">  }</span>
+<span id="cb3-8">  <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">if</span>(i <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> num_positions[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]) {</span>
+<span id="cb3-9">    type <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"old"</span></span>
+<span id="cb3-10">    lag <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> num_positions[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> num_positions[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb3-11">  }</span>
+<span id="cb3-12">  t_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">trial =</span> i,</span>
+<span id="cb3-13">                     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">item =</span> trial_sequence[i],</span>
+<span id="cb3-14">                     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">type =</span> type,</span>
+<span id="cb3-15">                     <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lag =</span> lag</span>
+<span id="cb3-16">                     )</span>
+<span id="cb3-17">  df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rbind</span>(df,t_df)</span>
+<span id="cb3-18">}</span></code></pre></div>
+</div>
 <p>This results in a data frame codes properties of the trial sequence. Notice that most of the beginning trials are new items, and most of the ending trials are old items.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(df)</span></code></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -56,1203 +181,1203 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">61</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">43</td>
+<td style="text-align: right;">12</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">71</td>
+<td style="text-align: right;">75</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">54</td>
+<td style="text-align: right;">42</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">5</td>
-<td style="text-align: right;">82</td>
+<td style="text-align: right;">70</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">6</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">84</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">7</td>
-<td style="text-align: right;">48</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">8</td>
-<td style="text-align: right;">23</td>
+<td style="text-align: right;">25</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">9</td>
-<td style="text-align: right;">91</td>
+<td style="text-align: right;">54</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">10</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">32</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">11</td>
-<td style="text-align: right;">59</td>
+<td style="text-align: right;">11</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">12</td>
-<td style="text-align: right;">83</td>
+<td style="text-align: right;">98</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">13</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: right;">21</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">14</td>
-<td style="text-align: right;">35</td>
+<td style="text-align: right;">69</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">15</td>
-<td style="text-align: right;">45</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">16</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">17</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: right;">92</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">18</td>
-<td style="text-align: right;">87</td>
+<td style="text-align: right;">82</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">19</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">48</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">20</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">96</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">21</td>
-<td style="text-align: right;">82</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">16</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">32</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">76</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">81</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">25</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">39</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">32</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">39</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">69</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">94</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">20</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">39</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">70</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">41</td>
-<td style="text-align: right;">73</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">79</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">77</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">45</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">47</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">48</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">51</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">43</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">52</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">41</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">54</td>
-<td style="text-align: right;">84</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">54</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">8</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">51</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">56</td>
-<td style="text-align: right;">48</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">49</td>
+<td style="text-align: right;">21</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">78</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">9</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">59</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">51</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">61</td>
-<td style="text-align: right;">71</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">58</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">62</td>
-<td style="text-align: right;">68</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">11</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">64</td>
-<td style="text-align: right;">88</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">35</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">95</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">18</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">67</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">68</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: right;">80</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">69</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">24</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">70</td>
-<td style="text-align: right;">13</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">90</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">87</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">71</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">92</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">35</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">39</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">72</td>
-<td style="text-align: right;">47</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">73</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">74</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">75</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">76</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">77</td>
-<td style="text-align: right;">96</td>
-<td style="text-align: left;">old</td>
 <td style="text-align: right;">40</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">78</td>
-<td style="text-align: right;">90</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">79</td>
-<td style="text-align: right;">72</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">80</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">81</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">62</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">82</td>
-<td style="text-align: right;">45</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">67</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">83</td>
-<td style="text-align: right;">92</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">84</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">85</td>
-<td style="text-align: right;">83</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">73</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">86</td>
-<td style="text-align: right;">81</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">60</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">88</td>
-<td style="text-align: right;">59</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">77</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">89</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">90</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">23</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">91</td>
-<td style="text-align: right;">91</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">82</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">92</td>
-<td style="text-align: right;">56</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">43</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">94</td>
-<td style="text-align: right;">85</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">35</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">95</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">72</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">96</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">97</td>
-<td style="text-align: right;">44</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">98</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;">99</td>
-<td style="text-align: right;">97</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">38</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">100</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">76</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">79</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">73</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">56</td>
 <td style="text-align: right;">49</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">58</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
 <td style="text-align: right;">67</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">68</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">62</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">73</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">61</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">76</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">66</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">89</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">79</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">57</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">86</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">51</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">87</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">63</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">90</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">87</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">61</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">94</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">42</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">96</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">97</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">82</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">99</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">93</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">66</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">101</td>
+<td style="text-align: right;">23</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">102</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">48</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">103</td>
-<td style="text-align: right;">44</td>
+<td style="text-align: right;">50</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">67</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">104</td>
-<td style="text-align: right;">25</td>
+<td style="text-align: right;">36</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">87</td>
+<td style="text-align: right;">53</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">105</td>
-<td style="text-align: right;">30</td>
+<td style="text-align: right;">68</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">106</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">46</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">106</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">72</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">107</td>
-<td style="text-align: right;">73</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">66</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">108</td>
-<td style="text-align: right;">38</td>
+<td style="text-align: right;">29</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">109</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: right;">14</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">55</td>
+<td style="text-align: right;">36</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">110</td>
-<td style="text-align: right;">46</td>
+<td style="text-align: right;">95</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">111</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">56</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">27</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">112</td>
-<td style="text-align: right;">52</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">107</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">113</td>
-<td style="text-align: right;">64</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">56</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">114</td>
-<td style="text-align: right;">62</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">115</td>
-<td style="text-align: right;">26</td>
+<td style="text-align: right;">96</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">42</td>
+<td style="text-align: right;">95</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">116</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">46</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">117</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">118</td>
-<td style="text-align: right;">88</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">54</td>
+<td style="text-align: right;">37</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">119</td>
-<td style="text-align: right;">100</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">12</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">120</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">82</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">121</td>
-<td style="text-align: right;">98</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">47</td>
+<td style="text-align: right;">86</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">122</td>
-<td style="text-align: right;">41</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">69</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">123</td>
-<td style="text-align: right;">69</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">88</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">124</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">19</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">125</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: right;">123</td>
+<td style="text-align: right;">79</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">17</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">126</td>
-<td style="text-align: right;">17</td>
+<td style="text-align: right;">62</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">127</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">98</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">115</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">128</td>
-<td style="text-align: right;">58</td>
+<td style="text-align: right;">48</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">100</td>
+<td style="text-align: right;">109</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">129</td>
-<td style="text-align: right;">89</td>
+<td style="text-align: right;">47</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">116</td>
+<td style="text-align: right;">60</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">130</td>
-<td style="text-align: right;">75</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">131</td>
-<td style="text-align: right;">76</td>
+<td style="text-align: right;">38</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">106</td>
+<td style="text-align: right;">90</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">132</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">66</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">133</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">39</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">134</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">41</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">135</td>
-<td style="text-align: right;">57</td>
+<td style="text-align: right;">53</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">136</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">64</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">137</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">138</td>
 <td style="text-align: right;">63</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">137</td>
-<td style="text-align: right;">67</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">36</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">138</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">132</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;">139</td>
-<td style="text-align: right;">38</td>
+<td style="text-align: right;">18</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">31</td>
+<td style="text-align: right;">22</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">140</td>
-<td style="text-align: right;">80</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">72</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">141</td>
-<td style="text-align: right;">32</td>
+<td style="text-align: right;">83</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">117</td>
+<td style="text-align: right;">49</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">142</td>
-<td style="text-align: right;">34</td>
+<td style="text-align: right;">63</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">143</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">43</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">144</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">60</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">145</td>
-<td style="text-align: right;">55</td>
+<td style="text-align: right;">65</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">58</td>
+<td style="text-align: right;">85</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">146</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">11</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">147</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">91</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">58</td>
+<td style="text-align: right;">85</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">148</td>
-<td style="text-align: right;">74</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">14</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">149</td>
+<td style="text-align: right;">94</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">64</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">150</td>
 <td style="text-align: right;">3</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">103</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">97</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">150</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">136</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">151</td>
-<td style="text-align: right;">52</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">39</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">152</td>
-<td style="text-align: right;">14</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">136</td>
+<td style="text-align: right;">113</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">153</td>
-<td style="text-align: right;">90</td>
+<td style="text-align: right;">51</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">75</td>
+<td style="text-align: right;">7</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">154</td>
-<td style="text-align: right;">46</td>
+<td style="text-align: right;">20</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">44</td>
+<td style="text-align: right;">61</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">155</td>
-<td style="text-align: right;">68</td>
+<td style="text-align: right;">30</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">87</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">156</td>
-<td style="text-align: right;">30</td>
+<td style="text-align: right;">32</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">51</td>
+<td style="text-align: right;">146</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">157</td>
-<td style="text-align: right;">42</td>
+<td style="text-align: right;">44</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">158</td>
-<td style="text-align: right;">99</td>
+<td style="text-align: right;">21</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">34</td>
+<td style="text-align: right;">145</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">159</td>
-<td style="text-align: right;">93</td>
+<td style="text-align: right;">78</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">84</td>
+<td style="text-align: right;">115</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">160</td>
-<td style="text-align: right;">21</td>
+<td style="text-align: right;">44</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">80</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">161</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">17</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">162</td>
-<td style="text-align: right;">16</td>
+<td style="text-align: right;">43</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">163</td>
-<td style="text-align: right;">31</td>
+<td style="text-align: right;">62</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">141</td>
+<td style="text-align: right;">37</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">164</td>
-<td style="text-align: right;">33</td>
+<td style="text-align: right;">59</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">121</td>
+<td style="text-align: right;">94</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">165</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">166</td>
-<td style="text-align: right;">65</td>
+<td style="text-align: right;">71</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">167</td>
-<td style="text-align: right;">86</td>
-<td style="text-align: left;">new</td>
-<td style="text-align: right;">NA</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">32</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">168</td>
-<td style="text-align: right;">74</td>
+<td style="text-align: right;">80</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">144</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">169</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">61</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">98</td>
+<td style="text-align: right;">55</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">170</td>
-<td style="text-align: right;">17</td>
+<td style="text-align: right;">97</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">44</td>
+<td style="text-align: right;">19</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">171</td>
-<td style="text-align: right;">94</td>
+<td style="text-align: right;">71</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">135</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">172</td>
-<td style="text-align: right;">53</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">116</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">173</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">51</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">174</td>
+<td style="text-align: right;">85</td>
 <td style="text-align: left;">new</td>
 <td style="text-align: right;">NA</td>
 </tr>
 <tr class="odd">
-<td style="text-align: right;">173</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">126</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">174</td>
-<td style="text-align: right;">97</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">75</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;">175</td>
-<td style="text-align: right;">66</td>
+<td style="text-align: right;">93</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">117</td>
+<td style="text-align: right;">59</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">176</td>
-<td style="text-align: right;">78</td>
+<td style="text-align: right;">34</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">119</td>
+<td style="text-align: right;">80</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">177</td>
-<td style="text-align: right;">70</td>
+<td style="text-align: right;">58</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">137</td>
+<td style="text-align: right;">33</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">178</td>
-<td style="text-align: right;">22</td>
+<td style="text-align: right;">52</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">146</td>
+<td style="text-align: right;">157</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">179</td>
-<td style="text-align: right;">79</td>
+<td style="text-align: right;">90</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">137</td>
+<td style="text-align: right;">150</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">180</td>
-<td style="text-align: right;">72</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">101</td>
+<td style="text-align: right;">115</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">181</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">19</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">182</td>
-<td style="text-align: right;">50</td>
+<td style="text-align: right;">55</td>
 <td style="text-align: left;">old</td>
 <td style="text-align: right;">84</td>
 </tr>
+<tr class="even">
+<td style="text-align: right;">182</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">old</td>
+<td style="text-align: right;">81</td>
+</tr>
 <tr class="odd">
 <td style="text-align: right;">183</td>
-<td style="text-align: right;">47</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">111</td>
+<td style="text-align: right;">176</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">184</td>
-<td style="text-align: right;">9</td>
+<td style="text-align: right;">99</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">73</td>
+<td style="text-align: right;">144</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">185</td>
-<td style="text-align: right;">51</td>
-<td style="text-align: left;">old</td>
-<td style="text-align: right;">125</td>
+<td style="text-align: right;">67</td>
+<td style="text-align: left;">new</td>
+<td style="text-align: right;">NA</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">186</td>
-<td style="text-align: right;">65</td>
+<td style="text-align: right;">10</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">20</td>
+<td style="text-align: right;">56</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">187</td>
-<td style="text-align: right;">77</td>
+<td style="text-align: right;">31</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">143</td>
+<td style="text-align: right;">22</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">188</td>
-<td style="text-align: right;">12</td>
+<td style="text-align: right;">17</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">157</td>
+<td style="text-align: right;">27</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">189</td>
 <td style="text-align: right;">86</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">22</td>
+<td style="text-align: right;">68</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">190</td>
-<td style="text-align: right;">53</td>
+<td style="text-align: right;">66</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">18</td>
+<td style="text-align: right;">50</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">191</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">67</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">42</td>
+<td style="text-align: right;">6</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">192</td>
-<td style="text-align: right;">63</td>
+<td style="text-align: right;">15</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">56</td>
+<td style="text-align: right;">177</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">193</td>
-<td style="text-align: right;">75</td>
+<td style="text-align: right;">82</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">63</td>
+<td style="text-align: right;">175</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">194</td>
-<td style="text-align: right;">100</td>
+<td style="text-align: right;">24</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">75</td>
+<td style="text-align: right;">107</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">195</td>
-<td style="text-align: right;">92</td>
+<td style="text-align: right;">27</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">112</td>
+<td style="text-align: right;">52</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">196</td>
-<td style="text-align: right;">60</td>
+<td style="text-align: right;">85</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">63</td>
+<td style="text-align: right;">22</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">197</td>
-<td style="text-align: right;">61</td>
+<td style="text-align: right;">13</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">196</td>
+<td style="text-align: right;">130</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">198</td>
-<td style="text-align: right;">64</td>
+<td style="text-align: right;">43</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">85</td>
+<td style="text-align: right;">36</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">199</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">77</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">38</td>
+<td style="text-align: right;">135</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">200</td>
-<td style="text-align: right;">15</td>
+<td style="text-align: right;">76</td>
 <td style="text-align: left;">old</td>
-<td style="text-align: right;">73</td>
+<td style="text-align: right;">158</td>
 </tr>
 </tbody>
 </table>
@@ -1260,6 +1385,11 @@
 </div>
 <p>We can also look at the distribution of lags for old items. The random shuffling produced a wide range of lags, including very short lags.</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hist</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>lag)</span></code></pre></div>
 <div class="cell-output-display">
 <div id="fig-539a35d47e664c97a50115a146a7f1bd-1" class="quarto-figure quarto-figure-center anchored" width="672">
 <figure class="quarto-float quarto-float-fig figure">

@@ -10,7 +10,7 @@ categories:
   - Pictures
   - Recognition Memory
 execute:
-  echo: false
+  echo: true
   warning: false
   message: false
 ---
