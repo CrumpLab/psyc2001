@@ -1,0 +1,119 @@
+---
+title: "Week 9: Orientation effects and algorithms for a continuous recognition procedure"
+description: "Additional literature review and solving a small puzzle"
+author: "Matt Crump"
+date: 10-28-23
+date-modified: last-modified
+image: week9.jpg
+categories:
+  - Psyc 2001
+  - Pictures
+  - Recognition Memory
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+As a quick recap. In our meeting yesterday we tried a pilot version of a continuous recognition memory procedure for pictures with different levels of noise added.
+ 
+I am still in the process of addressing some of the design issues in that experiment that we discussed, and I expect to be finished with that by early next week. Once I have a finalized version I will email you all a link to try the study one more time, and we will look at the data next week.
+ 
+In addition, the assignment for this week is for you to do a little bit of research yourself, this time on rotation and orientation effects.
+ 
+Many studies have shown that inverted or rotated stimuli may impair memory. Your first task is to read the very short paper (which is attached and in the zotero group library):
+ 
+Scapinello, K. F., & Yarmey, A. D. (1970). The role of familiarity and orientation in immediate and delayed recognition of pictorial stimuli. Psychonomic Science, 21(6), 329–330.
+ 
+Then use google scholar, or some other method (e.g., the references from the above paper), to find another paper investigating how rotation or inversion may impact recognition memory.
+ 
+Make a blog post taking notes about the paper, and describing the extra paper that you found. After we finish the pictures in noise experiment, we'll move on to making an experiment that attempts to replicate rotation effects.
+
+## Advanced
+
+This section is not required, but may be of some interest (e.g., you could decide to work on this problem this week instead of the above). In a continuous recognition procedure items are presented one at time and a participants judges whether the item is new or old. A new item is one that has never been presented before. An old item is a repetition of a previously presented item. 
+
+The experiment that we tried in class was an example of a continuous recognition procedure. One of the issues with this design is controlling the mixture of new and old items in the sequence of trials. In our pilot experiment, there was a noticeable bias in our sequence. Specifically, most of the early trials were new items and most of later trials were old items. 
+
+The advanced problem is to consider our approach to the sequencing of new and old items. Ideally, we should be able to control:
+
+1. The proportion of new and old items (e.g. 50% each).
+2. The lag between repetitions. That is how many other items are between first and second presentations.
+3. Avoiding long runs of all new or all old
+
+Here is an example approach that solves some of the problem, but not all of them.
+
+Let's say we have 100 pictures, represented here by the numbers 1 to 100
+
+```{r}
+all_pictures <- 1:100
+```
+
+I will use R to duplicate the set of numbers, and then randomly shuffle the order. This process ensures that each item (1 to 100) is presented twice in a random order. As a result, there would be 100 new trials (the first time you see a particular number), and 100 old trials (the second time you a particular number).
+
+```{r}
+trial_sequence <- sample(c(1:100,1:100))
+```
+
+However, simply shuffling the values randomly produces some other issues. The code chunk below analyzes the above 200 trial sequence to determine whether a particular trial is a new or old item. If the item is old, the lag between presentations is also computed.
+
+```{r}
+df <- data.frame()
+for(i in 1:200){
+  num_positions <- which(trial_sequence %in% trial_sequence[i])
+  if(i == num_positions[1]) {
+    type <- "new"
+    lag <- NA
+  }
+  if(i == num_positions[2]) {
+    type <- "old"
+    lag <- num_positions[2] - num_positions[1]
+  }
+  t_df <- data.frame(trial = i,
+                     item = trial_sequence[i],
+                     type = type,
+                     lag = lag
+                     )
+  df <-  rbind(df,t_df)
+}
+```
+
+This results in a data frame codes properties of the trial sequence. Notice that most of the beginning trials are new items, and most of the ending trials are old items. 
+
+```{r}
+knitr::kable(df)
+```
+
+We can also look at the distribution of lags for old items. The random shuffling produced a wide range of lags, including very short lags.
+
+```{r}
+hist(df$lag)
+```
+
+## Next steps
+
+Ideally we want to create a different way of mixing items together that allows:
+
+1. Reduction of bias toward new/old items across the sequence. The beginning shouldn't be mostly new items, and the end shouldn't be mostly old. 
+
+2. More control over the lags between first and second presentation of an item. For example, all items might have a minimum lag of 50 or greater.
+
+I'll be working on solutions to this problem, and feel free to try your own as your work for this week. The solution to this type of problem requires an algorithm for mixing the items, and then some analysis of the sequence to show that it expresses the desired properties.
+
+One of the papers in our zotero group library used a continuous recognition procedure, and their method section describes an approach that involves "test" items, and "filler" items. Here's the reference:
+
+Isola, P., Xiao, J., Torralba, A., & Oliva, A. (2011). What makes an image memorable? Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference On, 145–152.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
