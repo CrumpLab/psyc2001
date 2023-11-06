@@ -1,0 +1,44 @@
+---
+title: "Week 10: Picture Memorability"
+description: "A reading and an experiment proposal"
+author: "Matt Crump"
+date: 11-06-23
+date-modified: last-modified
+image: week10.jpg
+categories:
+  - Psyc 2001
+  - Pictures
+  - Recognition Memory
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+The reading for this week is:
+
+Isola, P., Xiao, J., Torralba, A., & Oliva, A. (2011). What makes an image memorable? Computer Vision and Pattern Recognition (CVPR), 2011 IEEE Conference On, 145–152.
+
+The paper is on the group shared zotero and I will email it to everyone.
+
+## Assignment
+
+1. Read the paper and take notes on your blog.
+
+2. Develop an experiment proposal
+
+The reading provides some compelling evidence that some images are inherently more memorable than other images. The purpose of your experiment proposal is to brainstorm a way to test the limits of this memorability effect. 
+
+One example that we discussed in class was the idea of within-subject test-retest reliability. For example, if we ran a version of the above experiment on the same group of people twice, would they find a high correlation between the picture memorability rankings on the first and second test? According to the notion that some pictures are inherently more memorable than others, we would expect a relatively strong positive correlation. 
+
+Your task to consider other potential ways to test the limits of the memorability effect. This would involve running a similar kind of experiment as above, but manipulating some additional aspects to determine how stable or generalizable the effect is to other conditions. 
+
+Have fun, and it is OK to brainstorm more than one experiment idea.
+
+
+
+
+
+
+
+
