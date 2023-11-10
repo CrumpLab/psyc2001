@@ -1,0 +1,57 @@
+---
+title: "Week 11: Minerva Modeling Week A"
+description: "A reading and an experiment proposal"
+author: "Matt Crump"
+date: 11-10-23
+date-modified: last-modified
+image: week11.jpg
+categories:
+  - Psyc 2001
+  - MINERVA II
+draft: false
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+The next couple of weeks will be used to introduce MINERVA II, an instance-based computational model of memory. I've mentioned a few times throughout the semester that the picture memory experiments we've been discussing will be used to test predictions of a model of memory. We will spend the next few weeks learning about this model, and eventually using it to make predictions about recognition memory for pictures. 
+
+Here is a general plan for the next three weeks:
+
+Week A: Get some general familiarity with the model. This will involve reading a couple papers about the MINERVA II model, and working through a learning module about this topic that I developed for an intro to cognition course. Attempt to implement a really basic version of the model in Microsoft Excel or Google sheets by following a tutorial
+
+Week B: Follow along with a tutorial that I will post about how to implement a MINERVA II model in the R programming language. Our goal will be to model a generic recognition memory procedure. We will create a set of items, present the model with some of the items, and then give it a recognition memory to see if it can tell the difference between new and old items
+
+Week C: By week 3 we should be in a position to put digital representations of pictures into a MINERVA II memory model, and then simulate a recognition memory procedure for pictures. This simulation will allow us to make predictions from the theory about performance in picture recognition memory tasks. 
+
+Let's get started.
+
+## Week 1: General familiarity with MINERVA II
+
+I am assigning two major readings to cover the next three weeks. Both of these are on our zotero group, and I will email them around.
+
+
+1. Jamieson, R. K., Johns, B. T., Vokey, J. R., & Jones, M. N. (2022). Instance theory as a domain-general framework for cognitive psychology. Nature Reviews Psychology. https://doi.org/10.1038/s44159-022-00025-3
+
+  - This is a recent review paper that gives a broad overview of instance theory, as well as many ways in which MINERVA style models have been applied across cognition
+  
+2. Hintzman, D. L. (1986). “Schema Abstraction” in a Multiple-Trace Memory Model. Psychological Review, 93, 411–428. https://doi.org/10/bzdsr4
+
+  - This is one of the original papers describing the MINERVA II model
+  
+I expect both of these paper may be somewhat challenging reads. Don't get too discouraged, as we will talk about the concepts in them in our meeting, and in some video tutorials. 
+
+I have also made some supporting video lectures and tutorials for this topic that you can find here:
+
+<https://www.crumplab.com/cognition/articles/modules/L11_Instance_Theory.html>
+
+## Week 1 Assignment
+
+1. Read at least one of the papers above and take notes on your blog
+
+2. Follow the excel assignment from the link above to create a basic MINERVA II in excel. 
+3. If you want to work ahead, you could try to implement a MINERVA II model in R. Note that I will be creating tutorials for how to do this in R for next week.
+
+
+

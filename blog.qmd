@@ -1,6 +1,6 @@
 ---
 title: "Course Blog"
-abstract: "Weekly blog for Psyc 2001 with instructions for what to do each week."
+abstract: "Weekly blog for Psyc 2001 with instructions for each week."
 listing:
   contents: blog
   id: blog-list
