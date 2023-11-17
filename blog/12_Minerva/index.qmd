@@ -2,7 +2,7 @@
 title: "Week 12: Minerva Modeling Week B"
 description: "Programming a basic MINERVA II model in R"
 author: "Matt Crump"
-date: 11-10-23
+date: 11-17-23
 date-modified: last-modified
 image: week11.jpg
 categories:
